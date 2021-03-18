@@ -1,9 +1,9 @@
 import React from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import Home from "../components/Home";
-import Scan from "../components/Scan";
-import Offer from "../components/Offer";
-import Profile from "../components/Profile";
+import Home from "../pages/Home";
+import Scan from "../pages/Scan";
+import Offer from "../pages/Offer";
+import Profile from "../pages/Profile";
 import TabBar from "../components/TabBar";
 
 const Tab = createBottomTabNavigator();
