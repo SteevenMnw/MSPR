@@ -1,9 +1,13 @@
 //import liraries
-import React from "react";
+import React, { useEffect } from "react";
 import { View, Text, StyleSheet } from "react-native";
+import { getAllCoupons } from "../API/API_Access";
 
 // create a component
 const Home = () => {
+  useEffect(() => {
+    getAllCoupons().then((res) => console.log(res));
+  }, []);
   return (
     <View style={styles.container}>
       <Text style={styles.text}>Custom bottom tab nav !</Text>
