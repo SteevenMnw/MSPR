@@ -6,6 +6,7 @@ import Ionicons from "react-native-vector-icons/Ionicons";
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { getUserByEmailAndPassword } from '../API/API_Access';
 import * as Crypto from "expo-crypto"
+import { TouchableOpacity } from 'react-native-gesture-handler';
 
 
 class SignIn extends React.Component {
@@ -105,6 +106,16 @@ class SignIn extends React.Component {
                         onPress={ this.getUser }
                     />
                 </View>
+                <View style={{ bottom: -225, alignSelf:"center" }}>
+                    <Text>
+                        You do not have an account ? 
+                    </Text>
+                    <TouchableOpacity style={{ alignSelf:"center" }} /*onPress={() => navigation.navigate("SignUp")} a faire ---------------------------------*/ >
+                        <Text style={{ color: "#0099ff" }}>
+                            Sign Up.
+                        </Text>
+                    </TouchableOpacity>
+                </View>
             </View>
         )
     }
@@ -116,8 +127,14 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
     },
     Input: {
-        paddingLeft: 100,
-        paddingRight: 100
+        paddingLeft: 70,
+        paddingRight: 70
+    },
+    Error:{
+        paddingBottom: 25,
+        alignSelf: 'center',
+        color: "red",
+        fontSize: 17
     }
 });
 

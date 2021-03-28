@@ -165,11 +165,13 @@ class SignUp extends React.Component {
                         title="Sign up"
                         onPress={ this.signUp }
                     />
-                    <Text style={{ alignSelf:"center" }}>
-                        Already have an account ?
-                        </Text>
-                    <TouchableOpacity /*onPress={() => navigation.navigate("SignIn")} a faire ---------------------------------*/ >
-                        <Text style={{ alignSelf:"center", color: "#0099ff" }}>
+                </View>
+                <View style={{ bottom: -125, alignSelf:"center" }}>
+                    <Text>
+                        Already have an account ? 
+                    </Text>
+                    <TouchableOpacity style={{ alignSelf:"center" }} /*onPress={() => navigation.navigate("SignUp")} a faire ---------------------------------*/ >
+                        <Text style={{ color: "#0099ff" }}>
                             Sign In.
                         </Text>
                     </TouchableOpacity>
@@ -189,7 +191,7 @@ const styles = StyleSheet.create({
         paddingRight: 70
     },
     Error:{
-        paddingBottom: 25,
+        paddingBottom: 15,
         alignSelf: 'center',
         color: "red",
         fontSize: 17
