@@ -39,10 +39,9 @@ class SignUp extends React.Component {
         this.setState({ error: error })
     };
 
-    setUserSession = async () => {
+    setUserSession = async (email, newPasswd) => {
         try{
-            email = "Y"
-            newPasswd = "18f5384d58bcb1bba0bcd9e6a6781d1a6ac2cc280c330ecbab6cb7931b721552"
+            AsyncStorage.clear()
             getUserByEmailAndPassword(email, newPasswd)
                 .then(data => { 
                     this.setState({ dataSource: data })
@@ -50,23 +49,12 @@ class SignUp extends React.Component {
                         const jsonValue = JSON.stringify(this.state.dataSource)
                         AsyncStorage.setItem('user', jsonValue)
                     }
-            })
+                })
+                .catch(() => console.log("Erreur lors de l'envoie en SESSION"))
         }
         catch(e) {
             console.log(e);
         }
-    }
-
-    getUserSession = async () => {
-        /*try {
-            const value = await AsyncStorage.getItem('user')
-            const user = JSON.parse(value)
-            console.log(user)
-        } 
-        catch(e) {
-            console.log(e);
-        }*/
-        console.log(this.state.dataSource)
     }
 
     signUp = () => {
@@ -82,10 +70,12 @@ class SignUp extends React.Component {
                     value.then((newPasswd) => {
                         console.log(newPasswd)
                         this.setUserSession(email, newPasswd)
-                        addUser(email, newPasswd, name, surname).then(() =>
+                        addUser(email, newPasswd, name, surname)
+                        .then(() => {
                             console.log("Connecté")
-                        )
-                        // navigation.navigate("Home") a faire ----------------------------------
+                            // navigation.navigate("Home") a faire ----------------------------------
+                        })
+                        .catch(() => this.updateError("A Problem occured please try again"))
                     })
                 }
                 else{
@@ -180,16 +170,6 @@ class SignUp extends React.Component {
                         buttonStyle={{width: 150, alignSelf:"center"}}
                         title="Sign up"
                         onPress={ this.signUp }
-                    />
-                    <Button
-                        buttonStyle={{width: 150, alignSelf:"center"}}
-                        title="Sign up"
-                        onPress={ this.setUserSession }
-                    />
-                    <Button
-                        buttonStyle={{width: 150, alignSelf:"center"}}
-                        title="Sign up"
-                        onPress={ this.getUserSession }
                     />
                 </View>
                 <View style={{ bottom: -125, alignSelf:"center" }}>

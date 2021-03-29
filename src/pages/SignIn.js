@@ -30,6 +30,7 @@ class SignIn extends React.Component {
 
     setUserSession = async (value) => {
         try{
+            AsyncStorage.clear()
             const jsonValue = JSON.stringify(value)
             await AsyncStorage.setItem('user', jsonValue)
         }
@@ -49,9 +50,11 @@ class SignIn extends React.Component {
                     this.setState({ dataSource: data })
                     if(this.state.dataSource){
                         this.setUserSession(this.state.dataSource)
+                        console.log("Connecté")
                         // navigation.navigate("Home") a faire ---------------------------------------
                     }
                 })
+                .catch(() => this.updateError("There is an error in your password or email"))
             })
         }
         else if(passwd == "" && email){
