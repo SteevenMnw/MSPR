@@ -7,6 +7,7 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 import { getUserByEmailAndPassword } from "../API/API_Access";
 import * as Crypto from "expo-crypto";
 import { TouchableOpacity } from "react-native-gesture-handler";
+import Home from "./Home";
 
 class SignIn extends React.Component {
   constructor(props) {
@@ -48,7 +49,7 @@ class SignIn extends React.Component {
           this.setState({ dataSource: data });
           if (this.state.dataSource) {
             this.setUserSession(this.state.dataSource);
-            // navigation.navigate("Home") a faire ---------------------------------------
+            //navigation.navigate(Home)
           }
         });
       });
