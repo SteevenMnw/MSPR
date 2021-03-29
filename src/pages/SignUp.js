@@ -1,7 +1,7 @@
-import React from "react";
-import { View, StyleSheet, Text } from "react-native";
+import React from 'react'
+import {View, StyleSheet, Text} from "react-native";
 
-import { Input, Button } from "react-native-elements";
+import { Input, Button } from 'react-native-elements';
 import Ionicons from "react-native-vector-icons/Ionicons";
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { addUser } from '../API/API_Access';
@@ -9,99 +9,51 @@ import { TouchableOpacity } from 'react-native-gesture-handler';
 import * as Crypto from "expo-crypto"
 
 class SignUp extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      dataSource: [],
-      name: "",
-      surname: "",
-      email: "",
-      passwd: "",
-      checkPasswd: "",
-      error: "",
+
+    constructor(props) {
+        super(props);
+        this.state = { dataSource: [], name:'', surname:'', email: '', passwd: '', checkPasswd:'', error: '' }
+    }
+
+    updateName = (name) => {
+        this.setState({ name: name })
     };
-  }
 
-  updateName = (name) => {
-    this.setState({ name: name });
-  };
+    updateSurname = (surname) => {
+        this.setState({ surname: surname })
+    };
 
-  updateSurname = (surname) => {
-    this.setState({ surname: surname });
-  };
+    updateEmail = (email) => {
+        this.setState({ email: email })
+    };
 
-  updateEmail = (email) => {
-    this.setState({ email: email });
-  };
+    updatePasswd = (passwd) => {
+        this.setState({ passwd: passwd })
+    };
 
-  updatePasswd = (passwd) => {
-    this.setState({ passwd: passwd });
-  };
+    updatecheckPasswd = (checkPasswd) => {
+        this.setState({ checkPasswd: checkPasswd })
+    };
 
-  updatecheckPasswd = (checkPasswd) => {
-    this.setState({ checkPasswd: checkPasswd });
-  };
+    updateError = (error) => {
+        this.setState({ error: error })
+    };
 
-  updateError = (error) => {
-    this.setState({ error: error });
-  };
-
-  setUserSession = async (email, passwd, name, surname) => {
-    try {
-      const value = {
-        email: email,
-        password: passwd,
-        name: name,
-        surname: surname,
-      };
-      const jsonValue = JSON.stringify(value);
-      await AsyncStorage.setItem("user", jsonValue);
-    } catch (e) {
-      console.log(e);
-    }
-  };
-
-  signUp = () => {
-    try {
-      name = this.state.name;
-      surname = this.state.surname;
-      email = this.state.email;
-      passwd = this.state.passwd;
-      checkPasswd = this.state.checkPasswd;
-      if (
-        passwd == checkPasswd &&
-        passwd != "" &&
-        checkPasswd != "" &&
-        name &&
-        surname &&
-        email
-      ) {
-        if (
-          (email.includes("@") && email.includes(".com")) ||
-          (email.includes("@") && email.includes(".fr"))
-        ) {
-          const value = Crypto.digestStringAsync(
-            Crypto.CryptoDigestAlgorithm.SHA256,
-            passwd
-          );
-          value.then((newPasswd) => {
-            console.log(newPasswd);
-            this.setUserSession(email, newPasswd, name, surname);
-            addUser(email, newPasswd, name, surname);
-            // navigation.navigate("Home") a faire ----------------------------------
-          });
-        } else {
-          this.updateError("Please enter a correct email");
+    setUserSession = async (email, passwd, name, surname) => {
+        try{
+            const value = {
+                "email": email,
+                "password": passwd,
+                "name": name,
+                "surname": surname
+            }
+            const jsonValue = JSON.stringify(value)
+            await AsyncStorage.setItem('user', jsonValue)
         }
-      } else if (passwd != checkPasswd && name && surname && email) {
-        this.updateError("Passwords do not match.");
-      } else {
-        this.updateError("You have not filled all the information.");
-      }
-    } catch (e) {
-      console.log(e);
+        catch(e) {
+            console.log(e);
+        }
     }
-  };
 
     signUp = () => {
         try {
@@ -124,28 +76,11 @@ class SignUp extends React.Component {
                     this.updateError("Please enter a correct email")
                 }
             }
-            onChangeText={this.updateName}
-            value={this.state.name}
-          />
-          <Input
-            placeholder="Surname"
-            leftIcon={
-              <Ionicons name="people-outline" size={24} color="black" />
+            else if(passwd != checkPasswd && name && surname && email) {
+                this.updateError("Passwords do not match.")
             }
-            onChangeText={this.updateSurname}
-            value={this.state.surname}
-          />
-          <Input
-            placeholder="Email"
-            leftIcon={<Ionicons name="mail-outline" size={24} color="black" />}
-            onChangeText={this.updateEmail}
-            value={this.state.email}
-          />
-          <Input
-            secureTextEntry={true}
-            placeholder="Password"
-            leftIcon={
-              <Ionicons name="lock-closed-outline" size={24} color="black" />
+            else{
+                this.updateError("You have not filled all the information.")
             }
         }
         catch(e) {
@@ -247,20 +182,20 @@ class SignUp extends React.Component {
 }
 
 const styles = StyleSheet.create({
-  main_container: {
-    flex: 1,
-    justifyContent: "center",
-  },
-  Input: {
-    paddingLeft: 70,
-    paddingRight: 70,
-  },
-  Error: {
-    paddingBottom: 15,
-    alignSelf: "center",
-    color: "red",
-    fontSize: 17,
-  },
+    main_container: {
+        flex: 1,
+        justifyContent: 'center',
+    },
+    Input: {
+        paddingLeft: 70,
+        paddingRight: 70
+    },
+    Error:{
+        paddingBottom: 15,
+        alignSelf: 'center',
+        color: "red",
+        fontSize: 17
+    }
 });
 
 export default SignUp;
