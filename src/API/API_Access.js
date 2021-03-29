@@ -12,7 +12,7 @@ export function getAllCoupons() {
 // Récupère un coupon grâce à l'id
 // https://springmspr.herokuapp.com/coupons/1
 export function getCouponById(id) {
-  const url = BASE_URL + "coupons/" + id;
+  const url = BASE_URL + "/coupons/" + id;
   return axios.get(url).then((response) => response.data);
 }
 
