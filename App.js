@@ -9,7 +9,7 @@ import QrCode from "./src/components/QrCode";
 export default function App() {
   return (
     <NavigationContainer>
-      <SignUp />
+      <SignIn />
     </NavigationContainer>
   );
 }
