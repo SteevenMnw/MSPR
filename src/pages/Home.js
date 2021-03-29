@@ -6,7 +6,7 @@ import { getAllCoupons } from "../API/API_Access";
 // create a component
 const Home = () => {
   useEffect(() => {
-    getAllCoupons().then((res) => console.log(res));
+    getAllCoupons().then((res) => res);
   }, []);
   return (
     <View style={styles.container}>
