@@ -4,7 +4,7 @@ import {View, StyleSheet, Text} from "react-native";
 import { Input, Button } from 'react-native-elements';
 import Ionicons from "react-native-vector-icons/Ionicons";
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { addUser } from '../API/API_Access';
+import { addUser, getUserByEmailAndPassword } from '../API/API_Access';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import * as Crypto from "expo-crypto"
 
@@ -39,17 +39,31 @@ class SignUp extends React.Component {
         this.setState({ error: error })
     };
 
-    setUserSession = async (email, passwd, name, surname) => {
+    setUserSession = async () => {
         try{
-            const value = {
-                "email": email,
-                "password": passwd,
-                "name": name,
-                "surname": surname
-            }
-            const jsonValue = JSON.stringify(value)
-            await AsyncStorage.setItem('user', jsonValue)
+            email = testt
+            newPasswd = "ae5d4814b0ce6c7db3d4f9134089318a348b5151bc2f4bfda905c8c849a3cf3d"
+            AsyncStorage.clear()
+            getUserByEmailAndPassword(email, newPasswd)
+                .then(data => { 
+                    this.setState({ dataSource: data })
+                    if(this.state.dataSource){
+                        const jsonValue = JSON.stringify(this.state.dataSource)
+                        AsyncStorage.setItem('user', jsonValue)
+                    }
+            })
         }
+        catch(e) {
+            console.log(e);
+        }
+    }
+
+    getUserSession = async () => {
+        try {
+            const value = await AsyncStorage.getItem('user')
+            const user = JSON.parse(value)
+            console.log(user)
+        } 
         catch(e) {
             console.log(e);
         }
@@ -67,7 +81,7 @@ class SignUp extends React.Component {
                     const value = Crypto.digestStringAsync( Crypto.CryptoDigestAlgorithm.SHA256, passwd );
                     value.then((newPasswd) => {
                         console.log(newPasswd)
-                        this.setUserSession(email, newPasswd, name, surname)
+                        this.setUserSession(email, newPasswd)
                         addUser(email, newPasswd, name, surname)
                         // navigation.navigate("Home") a faire ----------------------------------
                     })
@@ -164,6 +178,11 @@ class SignUp extends React.Component {
                         buttonStyle={{width: 150, alignSelf:"center"}}
                         title="Sign up"
                         onPress={ this.signUp }
+                    />
+                    <Button
+                        buttonStyle={{marginTop: 5, width: 150, alignSelf:"center"}}
+                        title="test"
+                        onPress={ this.getUserSession }
                     />
                 </View>
                 <View style={{ bottom: -125, alignSelf:"center" }}>
