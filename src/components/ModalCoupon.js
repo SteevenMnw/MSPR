@@ -12,6 +12,7 @@ const ModalCoupon = (props) => {
   const [coupon, setCoupon] = useState({});
   const [playOnce, setPlayOnce] = useState(false);
   const [couponError, setCouponError] = useState(false);
+  const [user, setUser] = useState([]);
 
   useEffect(() => {
     if (!isNaN(idCoupon)) {
@@ -48,8 +49,17 @@ const ModalCoupon = (props) => {
     return days_diff;
   }
 
+  getUserSession = async () => {
+    try {
+      const value = await AsyncStorage.getItem("user");
+      setUser(JSON.parse(value));
+    } catch (e) {
+      console.log(e);
+    }
+  };
+
   function addCoupon() {
-    addCouponForUser(1, coupon.id_coupon)
+    addCouponForUser(user.id_user, coupon.id_coupon)
       .then(() => {
         alert("Coupon ajouté à votre liste !");
         setStateModal(false);

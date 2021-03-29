@@ -4,7 +4,7 @@ import {View, StyleSheet, Text} from "react-native";
 import { Input, Button } from 'react-native-elements';
 import Ionicons from "react-native-vector-icons/Ionicons";
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { addUser } from '../API/API_Access';
+import { addUser, getUserByEmailAndPassword } from '../API/API_Access';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import * as Crypto from "expo-crypto"
 
@@ -39,20 +39,34 @@ class SignUp extends React.Component {
         this.setState({ error: error })
     };
 
-    setUserSession = async (email, passwd, name, surname) => {
+    setUserSession = async () => {
         try{
-            const value = {
-                "email": email,
-                "password": passwd,
-                "name": name,
-                "surname": surname
-            }
-            const jsonValue = JSON.stringify(value)
-            await AsyncStorage.setItem('user', jsonValue)
+            email = "Y"
+            newPasswd = "18f5384d58bcb1bba0bcd9e6a6781d1a6ac2cc280c330ecbab6cb7931b721552"
+            getUserByEmailAndPassword(email, newPasswd)
+                .then(data => { 
+                    this.setState({ dataSource: data })
+                    if(this.state.dataSource){
+                        const jsonValue = JSON.stringify(this.state.dataSource)
+                        AsyncStorage.setItem('user', jsonValue)
+                    }
+            })
         }
         catch(e) {
             console.log(e);
         }
+    }
+
+    getUserSession = async () => {
+        /*try {
+            const value = await AsyncStorage.getItem('user')
+            const user = JSON.parse(value)
+            console.log(user)
+        } 
+        catch(e) {
+            console.log(e);
+        }*/
+        console.log(this.state.dataSource)
     }
 
     signUp = () => {
@@ -67,8 +81,10 @@ class SignUp extends React.Component {
                     const value = Crypto.digestStringAsync( Crypto.CryptoDigestAlgorithm.SHA256, passwd );
                     value.then((newPasswd) => {
                         console.log(newPasswd)
-                        this.setUserSession(email, newPasswd, name, surname)
-                        addUser(email, newPasswd, name, surname)
+                        this.setUserSession(email, newPasswd)
+                        addUser(email, newPasswd, name, surname).then(() =>
+                            console.log("Connecté")
+                        )
                         // navigation.navigate("Home") a faire ----------------------------------
                     })
                 }
@@ -164,6 +180,16 @@ class SignUp extends React.Component {
                         buttonStyle={{width: 150, alignSelf:"center"}}
                         title="Sign up"
                         onPress={ this.signUp }
+                    />
+                    <Button
+                        buttonStyle={{width: 150, alignSelf:"center"}}
+                        title="Sign up"
+                        onPress={ this.setUserSession }
+                    />
+                    <Button
+                        buttonStyle={{width: 150, alignSelf:"center"}}
+                        title="Sign up"
+                        onPress={ this.getUserSession }
                     />
                 </View>
                 <View style={{ bottom: -125, alignSelf:"center" }}>
