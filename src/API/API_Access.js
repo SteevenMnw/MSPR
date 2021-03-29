@@ -36,8 +36,8 @@ export function getUserByEmailAndPassword(email, password) {
 
 // Ajout d'un coupon à l'utilisateur en utilisant l'id du coupon, l'id de l'utilisateur
 export function addCouponForUser(idUser, idCoupon) {
-  const url = BASE_URL + "/users/addCoupon";
+  const url = BASE_URL + `/users/${idUser}/addCoupon`;
   return axios
-    .put(url, null, { params: { idUser, idCoupon } })
+    .put(url, null, { params: { idCoupon } })
     .then((response) => response.data);
 }

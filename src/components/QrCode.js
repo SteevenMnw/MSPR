@@ -61,14 +61,8 @@ export default function QrCode() {
             }}
           />
         )}
-        <Text
-          onPress={() => alert("Navigate back from here")}
-          style={styles.cancel}
-        >
-          Cancel
-        </Text>
       </BarCodeScanner>
-      {showModal ? <ModalCoupon visible={showModal} idCoupon={result} /> : null}
+      {showModal && <ModalCoupon visible={showModal} idCoupon={result} />}
     </View>
   );
 }

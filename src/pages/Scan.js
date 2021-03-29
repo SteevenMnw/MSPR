@@ -2,13 +2,11 @@
 import React from "react";
 import { View, Text, StyleSheet } from "react-native";
 
+import QrCode from "../components/QrCode";
+
 // create a component
 const Scan = () => {
-  return (
-    <View style={styles.container}>
-      <Text style={styles.text}>Scan !</Text>
-    </View>
-  );
+  return <QrCode />;
 };
 
 // define your styles
