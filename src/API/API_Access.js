@@ -49,6 +49,24 @@ export function addCouponForUser(idUser, idCoupon) {
 }
 
 // Ajout d'un utilisateur
+// https://springmspr.herokuapp.com//users/add
+export function addUser(email, password, name, surname) {
+  const url = BASE_URL + "users/add";
+  return axios(url, {
+    method: "POST",
+    headers: {
+      Accept: "application/json",
+      "Content-type": "application/json",
+    },
+    body: JSON.stringify({
+      email,
+      password,
+      name,
+      surname,
+    }),
+  })
+    .then((response) => console.log(response))
+    .catch((e) => console.error(e));
 // https://springmspr.herokuapp.com/users/add
 export function addUser(mail, password, name, surname) {
   const url = BASE_URL + "/users/add";
