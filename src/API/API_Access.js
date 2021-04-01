@@ -54,3 +54,8 @@ export function addUser(email, password, name, surname) {
   const url = BASE_URL + "/users/add";
   return axios.post(url, null, { params: { email, password, name, surname } });
 }
+
+export function deleteCouponForUser(idUser, idCoupon) {
+  const url = BASE_URL + `/users/${idUser}/deleteCoupon`;
+  return axios.put(url, null, { params: { idCoupon } });
+}

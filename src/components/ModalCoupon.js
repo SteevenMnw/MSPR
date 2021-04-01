@@ -1,7 +1,6 @@
 //import liraries
-import axios from "axios";
 import React, { useState, useEffect } from "react";
-import { View, Text, StyleSheet, Modal, Pressable, Alert } from "react-native";
+import { View, Text, StyleSheet, Modal, Pressable } from "react-native";
 
 import { getCouponById, addCouponForUser } from "../API/API_Access";
 
