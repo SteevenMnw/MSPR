@@ -3,16 +3,32 @@ import React, { useEffect } from "react";
 import { View, Text, StyleSheet } from "react-native";
 import { getAllCoupons } from "../API/API_Access";
 
+import { getUserById } from "../API/API_Access";
+
+import AsyncStorage from "@react-native-async-storage/async-storage";
+
 // create a component
 const Home = () => {
   useEffect(() => {
     getAllCoupons().then((res) => res);
+    getUserById(1).then((data) => {
+      setUserSession(data);
+    });
   }, []);
   return (
     <View style={styles.container}>
       <Text style={styles.text}>Custom bottom tab nav !</Text>
     </View>
   );
+};
+
+setUserSession = async (value) => {
+  try {
+    const jsonValue = JSON.stringify(value);
+    await AsyncStorage.setItem("user", jsonValue);
+  } catch (e) {
+    console.log(e);
+  }
 };
 
 // define your styles

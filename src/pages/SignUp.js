@@ -39,10 +39,8 @@ class SignUp extends React.Component {
         this.setState({ error: error })
     };
 
-    setUserSession = async () => {
+    setUserSession = async (email, newPasswd) => {
         try{
-            email = "Y"
-            newPasswd = "18f5384d58bcb1bba0bcd9e6a6781d1a6ac2cc280c330ecbab6cb7931b721552"
             getUserByEmailAndPassword(email, newPasswd)
                 .then(data => { 
                     this.setState({ dataSource: data })
@@ -57,18 +55,6 @@ class SignUp extends React.Component {
         }
     }
 
-    getUserSession = async () => {
-        /*try {
-            const value = await AsyncStorage.getItem('user')
-            const user = JSON.parse(value)
-            console.log(user)
-        } 
-        catch(e) {
-            console.log(e);
-        }*/
-        console.log(this.state.dataSource)
-    }
-
     signUp = () => {
         try {
             name = this.state.name
@@ -80,7 +66,6 @@ class SignUp extends React.Component {
                 if(email.includes("@") && email.includes(".com") || email.includes("@") && email.includes(".fr")){
                     const value = Crypto.digestStringAsync( Crypto.CryptoDigestAlgorithm.SHA256, passwd );
                     value.then((newPasswd) => {
-                        console.log(newPasswd)
                         this.setUserSession(email, newPasswd)
                         addUser(email, newPasswd, name, surname).then(() =>
                             console.log("Connecté")
@@ -180,16 +165,6 @@ class SignUp extends React.Component {
                         buttonStyle={{width: 150, alignSelf:"center"}}
                         title="Sign up"
                         onPress={ this.signUp }
-                    />
-                    <Button
-                        buttonStyle={{width: 150, alignSelf:"center"}}
-                        title="Sign up"
-                        onPress={ this.setUserSession }
-                    />
-                    <Button
-                        buttonStyle={{width: 150, alignSelf:"center"}}
-                        title="Sign up"
-                        onPress={ this.getUserSession }
                     />
                 </View>
                 <View style={{ bottom: -125, alignSelf:"center" }}>

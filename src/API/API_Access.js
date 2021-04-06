@@ -50,16 +50,12 @@ export function addCouponForUser(idUser, idCoupon) {
 
 // Ajout d'un utilisateur
 // https://springmspr.herokuapp.com/users/add
-export function addUser(mail, password, name, surname) {
+export function addUser(email, password, name, surname) {
   const url = BASE_URL + "/users/add";
-  return axios
-    .post(url, null, {
-      params: {
-        mail,
-        password,
-        name,
-        surname,
-      },
-    })
-    .catch((error) => console.log(error));
+  return axios.post(url, null, { params: { email, password, name, surname } });
+}
+
+export function deleteCouponForUser(idUser, idCoupon) {
+  const url = BASE_URL + `/users/${idUser}/deleteCoupon`;
+  return axios.put(url, null, { params: { idCoupon } });
 }
