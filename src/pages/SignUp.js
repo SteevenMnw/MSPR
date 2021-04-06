@@ -4,7 +4,7 @@ import {View, StyleSheet, Text} from "react-native";
 import { Input, Button } from 'react-native-elements';
 import Ionicons from "react-native-vector-icons/Ionicons";
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { addUser } from '../API/API_Access';
+import { addUser, getUserByEmailAndPassword } from '../API/API_Access';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import * as Crypto from "expo-crypto"
 
@@ -39,16 +39,16 @@ class SignUp extends React.Component {
         this.setState({ error: error })
     };
 
-    setUserSession = async (email, passwd, name, surname) => {
+    setUserSession = async (email, newPasswd) => {
         try{
-            const value = {
-                "email": email,
-                "password": passwd,
-                "name": name,
-                "surname": surname
-            }
-            const jsonValue = JSON.stringify(value)
-            await AsyncStorage.setItem('user', jsonValue)
+            getUserByEmailAndPassword(email, newPasswd)
+                .then(data => { 
+                    this.setState({ dataSource: data })
+                    if(this.state.dataSource){
+                        const jsonValue = JSON.stringify(this.state.dataSource)
+                        AsyncStorage.setItem('user', jsonValue)
+                    }
+            })
         }
         catch(e) {
             console.log(e);
@@ -66,9 +66,10 @@ class SignUp extends React.Component {
                 if(email.includes("@") && email.includes(".com") || email.includes("@") && email.includes(".fr")){
                     const value = Crypto.digestStringAsync( Crypto.CryptoDigestAlgorithm.SHA256, passwd );
                     value.then((newPasswd) => {
-                        console.log(newPasswd)
-                        this.setUserSession(email, newPasswd, name, surname)
-                        addUser(email, newPasswd, name, surname)
+                        this.setUserSession(email, newPasswd)
+                        addUser(email, newPasswd, name, surname).then(() =>
+                            console.log("Connecté")
+                        )
                         // navigation.navigate("Home") a faire ----------------------------------
                     })
                 }
