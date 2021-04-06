@@ -31,7 +31,8 @@
     "react-native-tiny-toast": "^1.0.7",
     "react-native-vector-icons": "^8.1.0",
     "react-native-web": "^0.15.1",
-    "yarn": "^1.22.10"
+    "yarn": "^1.22.10",
+    "expo-crypto": "~8.4.0"
   },
   "devDependencies": {
     "@babel/core": "~7.9.0",
