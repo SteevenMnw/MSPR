@@ -45,6 +45,7 @@ export default function QrCode() {
         justifyContent: "flex-end",
       }}
     >
+      <Text>QR Code</Text>
       <BarCodeScanner
         onBarCodeScanned={scanned ? undefined : handleBarCodeScanned}
         style={[StyleSheet.absoluteFillObject, styles.container]}

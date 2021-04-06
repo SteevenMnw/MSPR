@@ -10,7 +10,7 @@ const TabBar = ({ state, navigation }) => {
   const [selected, setSelected] = useState("Home");
   const { routes } = state;
   const renderColor = (currentTab) =>
-    currentTab === selected ? "black" : "#909091";
+    currentTab === selected ? "#E8E8E8" : "#909091";
 
   const handlePress = (activeTab, index) => {
     if (state.index !== index) {
@@ -48,7 +48,7 @@ const styles = StyleSheet.create({
   container: {
     flexDirection: "row",
     justifyContent: "space-between",
-    backgroundColor: "#fff",
+    backgroundColor: "#F05454",
     width: width - 40,
     borderRadius: 100,
   },

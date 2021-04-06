@@ -7,7 +7,7 @@ import { FontAwesome5 } from "@expo/vector-icons";
 const Tab = ({ color, tab, onPress, icon }) => {
   return (
     <TouchableOpacity style={styles.container} onPress={onPress}>
-      {icon && <FontAwesome5 name={icon} size={20} color={color} />}
+      {icon && <FontAwesome5 name={icon} size={20} color={"#E8E8E8"} />}
       <Text style={{ color }}>{tab.name}</Text>
     </TouchableOpacity>
   );

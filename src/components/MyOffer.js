@@ -55,9 +55,9 @@ const MyOffer = (props) => {
             alignItems: "center",
           }}
         >
-          <Button title="Copié" onPress={() => copyToClipboard()} />
+          <Button title="Copié" color="#000000" onPress={() => copyToClipboard()} />
           <Text> </Text>
-          <Button title="Supp" onPress={() => deleteCoupon(offer.id_coupon)} />
+          <Button title="Supp" color="#000000" onPress={() => deleteCoupon(offer.id_coupon)} />
         </View>
       </View>
       <Text style={styles.date}>Valable jusqu'au {offer.date_end}</Text>
@@ -73,10 +73,8 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     borderWidth: 1,
     borderColor: "red",
-    marginLeft: 15,
-    marginRight: 15,
-    marginBottom: 15,
     padding: 15,
+    margin:15,
   },
   description: {
     fontSize: 16,
