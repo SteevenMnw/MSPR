@@ -8,10 +8,9 @@ import QrCode from "../components/QrCode";
 const Scan = () => {
   return (
    
-  <View style={styles.container}>
-      <Text style={styles.text}>QR Code</Text>
+
       <QrCode />
-  </View> 
+
   );
 };
 
@@ -23,13 +22,7 @@ const styles = StyleSheet.create({
     // alignItems: "center",
     backgroundColor: "#E8E8E8",
   },
-  text: {
-    fontSize: 40,
-    padding: 25,
-    marginTop: 20,
-    fontWeight: "bold",
-    color: "#000000",
-  },
+
 });
 
 //make this component available to the app

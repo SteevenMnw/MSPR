@@ -55,6 +55,7 @@ export default function QrCode() {
         {scanned && (
           <Button
             title={"Tap to Scan Again"}
+            color="#000000"
             onPress={() => {
               setScanned(false);
               setResult("");
