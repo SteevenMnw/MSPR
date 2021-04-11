@@ -49,19 +49,21 @@ class SignIn extends React.Component {
                     this.setState({ dataSource: data })
                     if(this.state.dataSource){
                         this.setUserSession(this.state.dataSource)
+                        console.log("Connecté")
                         // navigation.navigate("Home") a faire ---------------------------------------
                     }
                 })
+                .catch(() => this.updateError("Votre mail ou mot de passe est invalide"))
             })
         }
         else if(passwd == "" && email){
-            this.updateError("You forgot to enter your password.")
+            this.updateError("Veuillez insérer votre mot de passe.")
         }
         else if(email == "" && passwd){
-            this.updateError("You forgot to enter your email.")
+            this.updateError("Veuillez insérer votre mail.")
         }
         else {
-            this.updateError("You have not filled all the information.")
+            this.updateError("Veuillez renseigner toutes les informations.")
         }
     }
 
@@ -71,7 +73,7 @@ class SignIn extends React.Component {
             <View style={styles.main_container}>
                 <View style={styles.Input}>
                     <Input
-                        placeholder='Email'
+                        placeholder='Mail'
                         leftIcon={
                             <Ionicons
                                 name='mail-outline'
@@ -84,7 +86,7 @@ class SignIn extends React.Component {
                     />
                     <Input
                         secureTextEntry={true}
-                        placeholder='Password'
+                        placeholder='Mot de passe'
                         leftIcon={
                             <Ionicons
                                 name='lock-closed-outline'
@@ -102,17 +104,17 @@ class SignIn extends React.Component {
                     </Text>
                     <Button
                         buttonStyle={{width: 150, alignSelf:"center"}}
-                        title="Sign in"
+                        title="Se connecter"
                         onPress={ this.getUser }
                     />
                 </View>
                 <View style={{ bottom: -225, alignSelf:"center" }}>
                     <Text>
-                        You do not have an account ? 
+                        Vous n'avez pas encore de compte ? 
                     </Text>
                     <TouchableOpacity style={{ alignSelf:"center" }} /*onPress={() => navigation.navigate("SignUp")} a faire ---------------------------------*/ >
                         <Text style={{ color: "#0099ff" }}>
-                            Sign Up.
+                            S'inscrire
                         </Text>
                     </TouchableOpacity>
                 </View>
