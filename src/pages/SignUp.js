@@ -68,20 +68,22 @@ class SignUp extends React.Component {
                     value.then((newPasswd) => {
                         this.setUserSession(email, newPasswd)
                         addUser(email, newPasswd, name, surname).then(() =>
-                            console.log("Connecté")
+                            this.updateError(""),
+                            console.log("Inscrit")
                         )
                         // navigation.navigate("Home") a faire ----------------------------------
                     })
+                    .catch(() => this.updateError("Une erreur est survenu, veuillez attendre quelque instant et recommencer"))
                 }
                 else{
-                    this.updateError("Please enter a correct email")
+                    this.updateError("Entrez un mail correcte")
                 }
             }
             else if(passwd != checkPasswd && name && surname && email) {
-                this.updateError("Passwords do not match.")
+                this.updateError("Les mots de passe ne sont pas identiques.")
             }
             else{
-                this.updateError("You have not filled all the information.")
+                this.updateError("Veuillez renseigner toutes les informations.")
             }
         }
         catch(e) {
@@ -95,7 +97,7 @@ class SignUp extends React.Component {
             <View style={styles.main_container}>
                 <View style={styles.Input}>
                     <Input
-                        placeholder='Name'
+                        placeholder='Nom'
                         leftIcon={
                             <Ionicons
                                 name='person-outline'
@@ -107,7 +109,7 @@ class SignUp extends React.Component {
                         value={ this.state.name }
                     />
                     <Input
-                        placeholder='Surname'
+                        placeholder='Prenom'
                         leftIcon={
                             <Ionicons
                                 name='people-outline'
@@ -119,7 +121,7 @@ class SignUp extends React.Component {
                         value={ this.state.surname }
                     />
                     <Input
-                        placeholder='Email'
+                        placeholder='Mail'
                         leftIcon={
                             <Ionicons
                                 name='mail-outline'
@@ -132,7 +134,7 @@ class SignUp extends React.Component {
                     />
                     <Input
                         secureTextEntry={true}
-                        placeholder='Password'
+                        placeholder='Mot de passe'
                         leftIcon={
                             <Ionicons
                                 name='lock-closed-outline'
@@ -145,7 +147,7 @@ class SignUp extends React.Component {
                     />
                     <Input
                         secureTextEntry={true}
-                        placeholder='Confirm Password'
+                        placeholder='Confirmer Mot de passe'
                         leftIcon={
                             <Ionicons
                                 name='lock-closed-outline'
@@ -163,17 +165,17 @@ class SignUp extends React.Component {
                     </Text>
                     <Button
                         buttonStyle={{width: 150, alignSelf:"center"}}
-                        title="Sign up"
+                        title="S'inscrire"
                         onPress={ this.signUp }
                     />
                 </View>
                 <View style={{ bottom: -125, alignSelf:"center" }}>
                     <Text>
-                        Already have an account ? 
+                        Vous avez déjà un compte ? 
                     </Text>
                     <TouchableOpacity style={{ alignSelf:"center" }} /*onPress={() => navigation.navigate("SignUp")} a faire ---------------------------------*/ >
                         <Text style={{ color: "#0099ff" }}>
-                            Sign In.
+                            Se connecter
                         </Text>
                     </TouchableOpacity>
                 </View>

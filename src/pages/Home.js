@@ -22,7 +22,7 @@ const Home = () => {
   );
 };
 
-setUserSession = async (value) => {
+const setUserSession = async (value) => {
   try {
     const jsonValue = JSON.stringify(value);
     await AsyncStorage.setItem("user", jsonValue);
