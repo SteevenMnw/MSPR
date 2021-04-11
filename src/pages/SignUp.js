@@ -70,10 +70,10 @@ class SignUp extends React.Component {
                         addUser(email, newPasswd, name, surname).then(() =>
                             this.updateError(""),
                             console.log("Inscrit")
+                            // navigation.navigate("Home") a faire ----------------------------------
                         )
-                        // navigation.navigate("Home") a faire ----------------------------------
+                        .catch(() => this.updateError("Une erreur est survenu, veuillez attendre quelque instant et recommencer"))
                     })
-                    .catch(() => this.updateError("Une erreur est survenu, veuillez attendre quelque instant et recommencer"))
                 }
                 else{
                     this.updateError("Entrez un mail correcte")
