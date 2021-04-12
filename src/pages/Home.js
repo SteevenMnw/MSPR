@@ -35,7 +35,7 @@ const styles = StyleSheet.create({
     padding: 25,
     marginTop: 20,
     fontWeight: "bold",
-    color: "#000000",
+    color: "#ba473c",
   },
 });
 
