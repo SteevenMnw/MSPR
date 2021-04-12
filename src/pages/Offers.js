@@ -56,13 +56,14 @@ const Offers = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#76a6ef",
+    backgroundColor: "#E8E8E8",
   },
   title: {
-    fontSize: 20,
+    fontSize: 40,
     padding: 25,
+    marginTop: 20,
     fontWeight: "bold",
-    color: "#fff",
+    color: "#000000",
   },
 });
 
