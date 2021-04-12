@@ -1,8 +1,13 @@
 //import liraries
 import React, { useState, useEffect } from "react";
 import { View, Text, StyleSheet, Modal, Pressable } from "react-native";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
-import { getCouponById, addCouponForUser } from "../API/API_Access";
+import {
+  getCouponById,
+  addCouponForUser,
+  getUserById,
+} from "../API/API_Access";
 
 // create a component
 const ModalCoupon = (props) => {
@@ -15,6 +20,10 @@ const ModalCoupon = (props) => {
 
   useEffect(() => {
     if (!isNaN(idCoupon)) {
+      if (!playOnce) {
+        getUserSession();
+        setPlayOnce(true);
+      }
       getCouponById(idCoupon)
         .then((response) => {
           setCoupon(response);
@@ -57,10 +66,21 @@ const ModalCoupon = (props) => {
     }
   };
 
+  setUserSession = async () => {
+    try {
+      AsyncStorage.clear();
+      const jsonValue = JSON.stringify(user);
+      await AsyncStorage.setItem("user", jsonValue);
+    } catch (e) {
+      console.log(e);
+    }
+  };
+
   function addCoupon() {
     addCouponForUser(user.id_user, coupon.id_coupon)
       .then(() => {
         alert("Coupon ajouté à votre liste !");
+        setUserSession();
         setStateModal(false);
       })
       .catch(() => alert("Coupon déjà enregistré à votre liste !"));

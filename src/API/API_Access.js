@@ -40,7 +40,7 @@ export function getUserByEmailAndPassword(email, password) {
 }
 
 // Ajout d'un coupon à l'utilisateur en utilisant l'id du coupon, l'id de l'utilisateur
-// https://springmspr.herokuapp.com/users/addCoupon
+// https://springmspr.herokuapp.com/users/1/addCoupon
 export function addCouponForUser(idUser, idCoupon) {
   const url = BASE_URL + `/users/${idUser}/addCoupon`;
   return axios
@@ -53,8 +53,8 @@ export function addCouponForUser(idUser, idCoupon) {
 export function addUser(mail, password, name, surname) {
   const url = BASE_URL + "/users/add";
   return axios
-  .post(url, null, { params: { mail, password, name, surname } })
-  .then((response) => response.data);
+    .post(url, null, { params: { mail, password, name, surname } })
+    .then((response) => response.data);
 }
 
 export function deleteCouponForUser(idUser, idCoupon) {
