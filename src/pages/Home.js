@@ -1,16 +1,16 @@
-//import liraries
 import React, { useEffect } from "react";
 import { View, Text, StyleSheet } from "react-native";
 import { getAllCoupons } from "../API/API_Access";
 
+import { getUserById } from "../API/API_Access";
+
+import AsyncStorage from "@react-native-async-storage/async-storage";
+
 // create a component
 const Home = () => {
-  useEffect(() => {
-    getAllCoupons().then((res) => res);
-  }, []);
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>Custom bottom tab nav !</Text>
+      <Text style={styles.text}>Accueil</Text>
     </View>
   );
 };
@@ -19,14 +19,14 @@ const Home = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-    backgroundColor: "#76a6ef",
+    backgroundColor: "#E8E8E8",
   },
   text: {
-    fontSize: 20,
+    fontSize: 40,
+    padding: 25,
+    marginTop: 20,
     fontWeight: "bold",
-    color: "#fff",
+    color: "#000000",
   },
 });
 

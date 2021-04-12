@@ -53,13 +53,11 @@ export function addCouponForUser(idUser, idCoupon) {
 export function addUser(mail, password, name, surname) {
   const url = BASE_URL + "/users/add";
   return axios
-    .post(url, null, {
-      params: {
-        mail,
-        password,
-        name,
-        surname,
-      },
-    })
-    .catch((error) => console.log(error));
+  .post(url, null, { params: { mail, password, name, surname } })
+  .then((response) => response.data);
+}
+
+export function deleteCouponForUser(idUser, idCoupon) {
+  const url = BASE_URL + `/users/${idUser}/deleteCoupon`;
+  return axios.put(url, null, { params: { idCoupon } });
 }
