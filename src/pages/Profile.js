@@ -3,26 +3,31 @@ import React from "react";
 import { View, Text, StyleSheet } from "react-native";
 
 // create a component
-const Profile = () => {
-  return (
-    <View style={styles.container}>
-      <Text style={styles.text}>Profile !</Text>
-    </View>
-  );
-};
+class Profile extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+  render() {
+    return (
+      <View style={styles.container}>
+        <Text style={styles.text}>Mon Compte</Text>
+      </View>
+    );
+  }
+}
 
 // define your styles
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-    backgroundColor: "#76a6ef",
+    backgroundColor: "#E8E8E8",
   },
   text: {
-    fontSize: 20,
+    fontSize: 40,
+    padding: 25,
+    marginTop: 20,
     fontWeight: "bold",
-    color: "#fff",
+    color: "#000000",
   },
 });
 

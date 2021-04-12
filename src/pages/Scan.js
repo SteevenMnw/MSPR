@@ -5,9 +5,14 @@ import { View, Text, StyleSheet } from "react-native";
 import QrCode from "../components/QrCode";
 
 // create a component
-const Scan = () => {
-  return <QrCode />;
-};
+class Scan extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+  render() {
+    return <QrCode />;
+  }
+}
 
 // define your styles
 const styles = StyleSheet.create({
