@@ -27,7 +27,6 @@ const Offers = () => {
     try {
       const value = await AsyncStorage.getItem("user");
       setUser(JSON.parse(value));
-      console.log(value)
     } catch (e) {
       console.log(e);
     }
@@ -57,14 +56,13 @@ const Offers = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#E8E8E8",
+    backgroundColor: "#76a6ef",
   },
   title: {
-    fontSize: 40,
+    fontSize: 20,
     padding: 25,
-    marginTop: 20,
     fontWeight: "bold",
-    color: "#000000",
+    color: "#fff",
   },
 });
 

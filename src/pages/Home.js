@@ -15,6 +15,15 @@ const Home = () => {
   );
 };
 
+const setUserSession = async (value) => {
+  try {
+    const jsonValue = JSON.stringify(value);
+    await AsyncStorage.setItem("user", jsonValue);
+  } catch (e) {
+    console.log(e);
+  }
+};
+
 // define your styles
 const styles = StyleSheet.create({
   container: {

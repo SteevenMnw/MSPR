@@ -2,7 +2,7 @@ import React from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import Home from "../pages/Home";
 import Scan from "../pages/Scan";
-import Offer from "../pages/Offer";
+import Offers from "../pages/Offers";
 import Profile from "../pages/Profile";
 import TabBar from "../components/TabBar";
 import SignIn from "../pages/SignIn";
@@ -22,8 +22,8 @@ const TabNavigator = () => {
         initialParams={{ icon: "qrcode" }}
       />
       <Tab.Screen
-        name="Coupons"
-        component={Offer}
+        name="Offers"
+        component={Offers}
         initialParams={{ icon: "percent" }}
       />
       <Tab.Screen
