@@ -68,7 +68,7 @@ const MyOffer = (props) => {
           />
         </View>
       </View>
-      <Text>Code promo : {offer.libelle}</Text>
+      <Text style={{fontWeight: "bold"}}>Code promo : {offer.libelle}</Text>
       {offer.date_end && (
         <Text style={styles.date}>Valable jusqu'au {offer.date_end}</Text>
       )}
