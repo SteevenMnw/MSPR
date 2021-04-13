@@ -16,6 +16,13 @@ export function getCouponById(id) {
   return axios.get(url).then((response) => response.data);
 }
 
+// Récupère les coupons disponible
+// https://springmspr.herokuapp.com/coupons/info=1
+export function getAvailableCoupons() {
+  const url = BASE_URL + "/coupons/info=1";
+  return axios.get(url).then((response) => response.data);
+}
+
 // Récupère tous les utilisateurs
 // https://springmspr.herokuapp.com/users/all
 export function getAllUsers() {
