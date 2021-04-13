@@ -55,12 +55,23 @@ const MyOffer = (props) => {
             alignItems: "center",
           }}
         >
-          <Button color="#d43f53" title="Copié" onPress={() => copyToClipboard()} />
+          <Button
+            color="#d43f53"
+            title="Copié"
+            onPress={() => copyToClipboard()}
+          />
           <Text> </Text>
-          <Button color="#000000" title="Supp" onPress={() => deleteCoupon(offer.id_coupon)} />
+          <Button
+            color="#000000"
+            title="Supp"
+            onPress={() => deleteCoupon(offer.id_coupon)}
+          />
         </View>
       </View>
-      <Text style={styles.date}>Valable jusqu'au {offer.date_end}</Text>
+      <Text>Code promo : {offer.libelle}</Text>
+      {offer.date_end && (
+        <Text style={styles.date}>Valable jusqu'au {offer.date_end}</Text>
+      )}
     </View>
   );
 };
@@ -68,7 +79,7 @@ const MyOffer = (props) => {
 // define your styles
 const styles = StyleSheet.create({
   button: {
-      color: "red",
+    color: "red",
   },
   container: {
     flex: 1,
