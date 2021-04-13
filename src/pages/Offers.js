@@ -13,6 +13,7 @@ const Offers = () => {
   const [user, setUser] = useState([]);
   const [playOnce, setPlayOnce] = useState(false);
   const [reload, setReload] = useState(false);
+  const [refreshing, setRefreshing] = useState(false);
 
   useEffect(() => {
     if (!playOnce) {
@@ -35,7 +36,13 @@ const Offers = () => {
   ReloadUser = () => {
     getUserById(user.id_user).then((data) => {
       setUser(data);
+      setRefreshing(false);
     });
+  };
+
+  handleRefresh = () => {
+    setRefreshing(true);
+    ReloadUser();
   };
 
   return (
@@ -47,6 +54,8 @@ const Offers = () => {
         renderItem={({ item }) => (
           <MyOffer offer={item} user={user} callBack={setReload} />
         )}
+        refreshing={refreshing}
+        onRefresh={() => handleRefresh()}
       />
     </View>
   );
