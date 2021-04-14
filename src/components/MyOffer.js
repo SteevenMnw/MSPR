@@ -2,7 +2,7 @@
 import React from "react";
 import { View, Text, StyleSheet, Button, Alert } from "react-native";
 import { deleteCouponForUser } from "../API/API_Access";
-
+import { Ionicons } from '@expo/vector-icons';
 import Clipboard from "expo-clipboard";
 
 import Toast from "react-native-tiny-toast";
@@ -55,17 +55,9 @@ const MyOffer = (props) => {
             alignItems: "center",
           }}
         >
-          <Button
-            color="#d43f53"
-            title="Copié"
-            onPress={() => copyToClipboard()}
-          />
+          <Ionicons name="copy-outline" size={40} color="black" onPress={() => copyToClipboard()}/>
           <Text> </Text>
-          <Button
-            color="#000000"
-            title="Supp"
-            onPress={() => deleteCoupon(offer.id_coupon)}
-          />
+          <Ionicons name="trash-outline" size={40} color="#ba473c" onPress={() => deleteCoupon(offer.id_coupon)}/>
         </View>
       </View>
       <Text style={{fontWeight: "bold"}}>Code promo : {offer.libelle}</Text>

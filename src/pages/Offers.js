@@ -71,6 +71,7 @@ const styles = StyleSheet.create({
     fontSize: 40,
     paddingLeft: 15,
     paddingTop:5,
+    paddingBottom:5,
     fontWeight: "bold",
     color: "#ba473c",
   },

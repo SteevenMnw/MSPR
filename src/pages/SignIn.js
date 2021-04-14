@@ -50,7 +50,6 @@ class SignIn extends React.Component {
             this.setState({ dataSource: data });
             if (this.state.dataSource) {
               this.setUserSession(this.state.dataSource);
-              console.log("Connecté");
               this.props.navigation.navigate("Home");
             }
           })

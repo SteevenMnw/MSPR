@@ -6,7 +6,6 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 import {
   getCouponById,
   addCouponForUser,
-  getUserById,
 } from "../API/API_Access";
 
 // create a component
