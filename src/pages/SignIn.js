@@ -90,7 +90,7 @@ class SignIn extends React.Component {
         <View>
           <Text style={styles.Error}>{this.state.error}</Text>
           <Button
-            buttonStyle={{ width: 150, alignSelf: "center" }}
+            buttonStyle={{ width: 150, alignSelf: "center", backgroundColor: "#ba473c"  }}
             title="Se connecter"
             onPress={this.getUser}
           />
@@ -101,7 +101,7 @@ class SignIn extends React.Component {
             style={{ alignSelf: "center" }}
             onPress={() => this.props.navigation.navigate("SignUp")}
           >
-            <Text style={{ color: "#0099ff" }}>S'inscrire</Text>
+            <Text style={{ color: "#ba473c" }}>S'inscrire</Text>
           </TouchableOpacity>
         </View>
       </View>

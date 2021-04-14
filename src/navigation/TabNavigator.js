@@ -7,6 +7,8 @@ import Profile from "../pages/Profile";
 import TabBar from "../components/TabBar";
 import SignIn from "../pages/SignIn";
 
+
+
 const Tab = createBottomTabNavigator();
 const TabNavigator = () => {
   return (
