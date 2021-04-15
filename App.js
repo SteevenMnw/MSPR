@@ -13,7 +13,7 @@ const Stack = createStackNavigator();
 const createTwoButtonAlert = () => {
   Alert.alert(
     "Déconnexion",
-    "Voulez-vous vraiment vous déconnecter",
+    "Voulez-vous vraiment vous déconnecter ?",
     [
       {
         text: "Non",

@@ -26,11 +26,13 @@ class SignIn extends React.Component {
     this.setState({ error: error });
   };
 
-  setUserSession = async (value) => {
+  setUserSession = async (value, pswd) => {
     try {
       AsyncStorage.clear();
       const jsonValue = JSON.stringify(value);
       await AsyncStorage.setItem("user", jsonValue);
+      const jsonValuePswd = JSON.stringify(pswd);
+      await AsyncStorage.setItem("pswd", jsonValuePswd);
     } catch (e) {
       console.log(e);
     }
@@ -49,7 +51,7 @@ class SignIn extends React.Component {
           .then((data) => {
             this.setState({ dataSource: data });
             if (this.state.dataSource) {
-              this.setUserSession(this.state.dataSource);
+              this.setUserSession(this.state.dataSource, this.state.passwd);
               this.props.navigation.navigate("Home");
             }
           })
@@ -94,7 +96,7 @@ class SignIn extends React.Component {
             onPress={this.getUser}
           />
         </View>
-        <View style={{ bottom: -225, alignSelf: "center" }}>
+        <View style={{ alignSelf: "center" }}>
           <Text>Vous n'avez pas encore de compte ?</Text>
           <TouchableOpacity
             style={{ alignSelf: "center" }}

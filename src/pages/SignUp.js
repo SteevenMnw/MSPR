@@ -5,7 +5,7 @@ import { Input, Button } from "react-native-elements";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { addUser, getUserByEmailAndPassword } from "../API/API_Access";
-import { TouchableOpacity } from "react-native-gesture-handler";
+import { ScrollView, TouchableOpacity } from "react-native-gesture-handler";
 import * as Crypto from "expo-crypto";
 
 class SignUp extends React.Component {
@@ -46,7 +46,7 @@ class SignUp extends React.Component {
     this.setState({ error: error });
   };
 
-  setUserSession = async (email, newPasswd) => {
+  setUserSession = async (email, newPasswd, pswd) => {
     try {
       AsyncStorage.clear();
       getUserByEmailAndPassword(email, newPasswd).then((data) => {
@@ -54,6 +54,8 @@ class SignUp extends React.Component {
         if (this.state.dataSource) {
           const jsonValue = JSON.stringify(this.state.dataSource);
           AsyncStorage.setItem("user", jsonValue);
+          const jsonValuePswd = JSON.stringify(passwd);
+          AsyncStorage.setItem("pswd", jsonValuePswd);
         }
       });
     } catch (e) {
@@ -85,7 +87,7 @@ class SignUp extends React.Component {
             passwd
           );
           value.then((newPasswd) => {
-            this.setUserSession(email, newPasswd);
+            this.setUserSession(email, newPasswd, passwd);
             addUser(email, newPasswd, name, surname)
               .then(
                 () => this.updateError(""),
@@ -114,6 +116,7 @@ class SignUp extends React.Component {
   render() {
     return (
       <View style={styles.main_container}>
+      <ScrollView style={{ paddingVertical: 80 }}>
         <View style={styles.Input}>
           <Input
             placeholder="Nom"
@@ -164,7 +167,7 @@ class SignUp extends React.Component {
             onPress={this.signUp}
           />
         </View>
-        <View style={{ bottom: -125, alignSelf: "center" }}>
+        <View style={{ alignSelf: "center" }}>
           <Text>Vous avez déjà un compte ?</Text>
           <TouchableOpacity
             style={{ alignSelf: "center" }}
@@ -173,6 +176,7 @@ class SignUp extends React.Component {
             <Text style={{ color: "#ba473c" }}>Se connecter</Text>
           </TouchableOpacity>
         </View>
+      </ScrollView>
       </View>
     );
   }
