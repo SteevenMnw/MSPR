@@ -88,7 +88,7 @@ class SignUp extends React.Component {
           );
           value.then((newPasswd) => {
             this.setUserSession(email, newPasswd, passwd);
-            addUser(email, newPasswd, name, surname)
+            addUser(email, newPasswd, surname, name)
               .then(
                 () => this.updateError(""),
                 console.log("Inscrit"),
@@ -167,7 +167,7 @@ class SignUp extends React.Component {
             onPress={this.signUp}
           />
         </View>
-        <View style={{ alignSelf: "center" }}>
+        <View style={{ alignSelf: "center", paddingTop: 30  }}>
           <Text>Vous avez déjà un compte ?</Text>
           <TouchableOpacity
             style={{ alignSelf: "center" }}

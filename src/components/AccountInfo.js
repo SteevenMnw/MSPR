@@ -56,12 +56,12 @@ const AccountInfo = () => {
     <View>
       <View style={styles.champ}>
         <Text style={styles.champName}>Nom </Text>
-        <Text style={styles.champUser}>{user.name}</Text>
+        <Text style={styles.champUser}>{user.surname}</Text>
       </View>
 
       <View style={styles.champ}>
         <Text style={styles.champName}>Prénom</Text>
-        <Text style={styles.champUser}>{user.surname}</Text>
+        <Text style={styles.champUser}>{user.name}</Text>
       </View>
 
       <View style={styles.champ}>
