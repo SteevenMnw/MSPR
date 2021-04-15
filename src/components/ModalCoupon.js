@@ -100,7 +100,9 @@ const ModalCoupon = (props) => {
           <View style={styles.modalView}>
             <View>
               <Text style={styles.titleText}>Description du coupon : </Text>
-              <Text style={styles.modalText}>{coupon.description}</Text>
+              <Text style={styles.modalText} testID="coupon_description">
+                {coupon.description}
+              </Text>
               {coupon.date_end && (
                 <View>
                   <Text style={styles.titleText}>Date d'expiration : </Text>
