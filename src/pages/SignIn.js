@@ -1,5 +1,12 @@
 import React from "react";
-import { View, StyleSheet, Text } from "react-native";
+import {
+  View,
+  StyleSheet,
+  Text,
+  KeyboardAvoidingView,
+  TouchableWithoutFeedback,
+  Keyboard,
+} from "react-native";
 
 import { Input, Button } from "react-native-elements";
 import Ionicons from "react-native-vector-icons/Ionicons";
@@ -26,11 +33,13 @@ class SignIn extends React.Component {
     this.setState({ error: error });
   };
 
-  setUserSession = async (value) => {
+  setUserSession = async (value, pswd) => {
     try {
       AsyncStorage.clear();
       const jsonValue = JSON.stringify(value);
       await AsyncStorage.setItem("user", jsonValue);
+      const jsonValuePswd = JSON.stringify(pswd);
+      await AsyncStorage.setItem("pswd", jsonValuePswd);
     } catch (e) {
       console.log(e);
     }
@@ -49,8 +58,7 @@ class SignIn extends React.Component {
           .then((data) => {
             this.setState({ dataSource: data });
             if (this.state.dataSource) {
-              this.setUserSession(this.state.dataSource);
-              console.log("Connecté");
+              this.setUserSession(this.state.dataSource, this.state.passwd);
               this.props.navigation.navigate("Home");
             }
           })
@@ -69,47 +77,67 @@ class SignIn extends React.Component {
 
   render() {
     return (
-      <View style={styles.main_container}>
-        <View style={styles.Input}>
-          <Input
-            placeholder="Mail"
-            leftIcon={<Ionicons name="mail-outline" size={24} color="black" />}
-            onChangeText={this.updateEmail}
-            value={this.state.email}
-          />
-          <Input
-            secureTextEntry={true}
-            placeholder="Mot de passe"
-            leftIcon={
-              <Ionicons name="lock-closed-outline" size={24} color="black" />
-            }
-            onChangeText={this.updatePasswd}
-            value={this.state.passwd}
-          />
-        </View>
-        <View>
-          <Text style={styles.Error}>{this.state.error}</Text>
-          <Button
-            buttonStyle={{ width: 150, alignSelf: "center" }}
-            title="Se connecter"
-            onPress={this.getUser}
-          />
-        </View>
-        <View style={{ bottom: -225, alignSelf: "center" }}>
-          <Text>Vous n'avez pas encore de compte ?</Text>
-          <TouchableOpacity
-            style={{ alignSelf: "center" }}
-            onPress={() => this.props.navigation.navigate("SignUp")}
-          >
-            <Text style={{ color: "#0099ff" }}>S'inscrire</Text>
-          </TouchableOpacity>
-        </View>
-      </View>
+      <KeyboardAvoidingView
+        behavior={Platform.OS === "ios" ? "padding" : "height"}
+        style={styles.container}
+      >
+        <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+          <View style={styles.main_container}>
+            <View style={styles.Input}>
+              <Input
+                placeholder="Mail"
+                leftIcon={
+                  <Ionicons name="mail-outline" size={24} color="black" />
+                }
+                onChangeText={this.updateEmail}
+                value={this.state.email}
+              />
+              <Input
+                secureTextEntry={true}
+                placeholder="Mot de passe"
+                leftIcon={
+                  <Ionicons
+                    name="lock-closed-outline"
+                    size={24}
+                    color="black"
+                  />
+                }
+                onChangeText={this.updatePasswd}
+                value={this.state.passwd}
+              />
+            </View>
+            <View>
+              <Text style={styles.Error}>{this.state.error}</Text>
+              <Button
+                buttonStyle={{
+                  width: 150,
+                  alignSelf: "center",
+                  backgroundColor: "#ba473c",
+                }}
+                title="Se connecter"
+                onPress={this.getUser}
+              />
+            </View>
+            <View style={{ alignSelf: "center", paddingTop: 30 }}>
+              <Text>Vous n'avez pas encore de compte ?</Text>
+              <TouchableOpacity
+                style={{ alignSelf: "center" }}
+                onPress={() => this.props.navigation.navigate("SignUp")}
+              >
+                <Text style={{ color: "#ba473c" }}>S'inscrire</Text>
+              </TouchableOpacity>
+            </View>
+          </View>
+        </TouchableWithoutFeedback>
+      </KeyboardAvoidingView>
     );
   }
 }
 
 const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
   main_container: {
     flex: 1,
     justifyContent: "center",

@@ -20,7 +20,7 @@ export function getCouponById(id) {
 // https://springmspr.herokuapp.com/coupons/info=1
 export function getAvailableCoupons() {
   const url = BASE_URL + "/coupons/info=1";
-  return axios.get(url).then((response) => response.data);
+  return url;
 }
 
 // Récupère tous les utilisateurs

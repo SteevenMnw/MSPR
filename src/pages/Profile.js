@@ -1,16 +1,18 @@
 //import liraries
 import React from "react";
 import { View, Text, StyleSheet } from "react-native";
+import AccountInfo from "../components/AccountInfo";
 
 // create a component
 class Profile extends React.Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
   }
   render() {
     return (
       <View style={styles.container}>
         <Text style={styles.text}>Mon Compte</Text>
+        <AccountInfo/>
       </View>
     );
   }
@@ -24,8 +26,8 @@ const styles = StyleSheet.create({
   },
   text: {
     fontSize: 40,
-    padding: 25,
-    marginTop: 20,
+    paddingLeft: 15,
+    paddingTop:5,
     fontWeight: "bold",
     color: "#ba473c",
   },

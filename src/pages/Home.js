@@ -1,28 +1,53 @@
-import React, { useEffect } from "react";
-import { View, Text, StyleSheet } from "react-native";
-import { getAllCoupons } from "../API/API_Access";
-
-import { getUserById } from "../API/API_Access";
-
-import AsyncStorage from "@react-native-async-storage/async-storage";
+import React from "react";
+import { View, Text, StyleSheet, ActivityIndicator } from "react-native";
+import { FlatList } from "react-native-gesture-handler";
+import { getAvailableCoupons } from "../API/API_Access";
+import HomeCard from "../components/HomeCard";
 
 // create a component
-const Home = () => {
-  return (
-    <View style={styles.container}>
-      <Text style={styles.text}>Accueil</Text>
-    </View>
-  );
-};
-
-const setUserSession = async (value) => {
-  try {
-    const jsonValue = JSON.stringify(value);
-    await AsyncStorage.setItem("user", jsonValue);
-  } catch (e) {
-    console.log(e);
+class Home extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      isLoading: true,
+      dataSource: [],
+    };
   }
-};
+
+  componentDidMount() {
+    fetch(getAvailableCoupons())
+      .then((response) => response.json())
+      .then((responseJson) => {
+        this.setState({
+          isLoading: false,
+          dataSource: responseJson,
+        });
+      });
+  }
+
+  _renderItem = ({ item }) => (<HomeCard offer={item} />);
+
+  render() {
+    if (this.state.isLoading) {
+      return (
+        <View style={styles.container}>
+          <ActivityIndicator size="large" animating />
+        </View>
+      );
+    } else {
+      return (
+        <View style={styles.container}>
+          <Text style={styles.text}>Accueil</Text>
+          <FlatList
+            data={this.state.dataSource}
+            renderItem={this._renderItem}
+            keyExtractor={(item) => item.id_coupon.toString()}
+          />
+        </View>
+      );
+    }
+  }
+}
 
 // define your styles
 const styles = StyleSheet.create({
@@ -32,8 +57,9 @@ const styles = StyleSheet.create({
   },
   text: {
     fontSize: 40,
-    padding: 25,
-    marginTop: 20,
+    paddingLeft: 15,
+    paddingTop: 5,
+    paddingBottom:5,
     fontWeight: "bold",
     color: "#ba473c",
   },
