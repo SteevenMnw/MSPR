@@ -1,5 +1,5 @@
 import React from "react";
-import { NavigationContainer } from "@react-navigation/native";
+import { NavigationContainer, CommonActions } from "@react-navigation/native";
 import { Text, Alert } from "react-native";
 import SignIn from "./src/pages/SignIn";
 import TabNavigator from "./src/navigation/TabNavigator";
@@ -9,6 +9,11 @@ import { MaterialIcons } from "@expo/vector-icons";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
 const Stack = createStackNavigator();
+
+const navigationRef = React.createRef();
+export function navigate(name) {
+    navigationRef.current?.dispatch(CommonActions.navigate(name));
+}
 
 const createTwoButtonAlert = () => {
   Alert.alert(
@@ -21,9 +26,9 @@ const createTwoButtonAlert = () => {
       },
       {
         text: "Oui",
-        onPress: ({ navigation }) => {
+        onPress: () => {
           AsyncStorage.clear();
-          navigation.navigate("SignIn");
+          navigate("SignIn");
         },
       },
     ],
