@@ -82,22 +82,28 @@ class SignIn extends React.Component {
 
   render() {
     return (
-      <KeyboardAvoidingView
+      <KeyboardAvoidingView testID="test_keyboardAvoidingView"
         //behavior={Platform.OS === "ios" ? "padding" : "height"}
         style={styles.container}
       >
         <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
-          <View style={styles.main_container}>
-            <View style={styles.Input}>
+          <View testID="test_view_mainContainer" style={styles.main_container}>
+            <View testID="test_view_input" style={styles.Input}>
               <Input
+                testID="test_input_mail"
                 placeholder="Mail"
                 leftIcon={
-                  <Icon name="mail-outline" size={24} color="black" />
+                  <Icon 
+                  name="mail-outline" 
+                  size={24} 
+                  color="black" 
+                  />
                 }
                 onChangeText={this.updateEmail}
                 value={this.state.email}
               />
               <Input
+                testID="test_input_motDePasse"
                 secureTextEntry={true}
                 placeholder="Mot de passe"
                 leftIcon={
@@ -111,9 +117,10 @@ class SignIn extends React.Component {
                 value={this.state.passwd}
               />
             </View>
-            <View>
-              <Text testID="error" style={styles.Error}>{this.state.error}</Text>
+            <View testID="test_view_error-button">
+              <Text testID="test_text_error" style={styles.Error}>{this.state.error}</Text>
               <Button
+                testID="test_button_signIn"
                 buttonStyle={{
                   width: 150,
                   alignSelf: "center",
@@ -123,13 +130,14 @@ class SignIn extends React.Component {
                 onPress={this.getUser}
               />
             </View>
-            <View style={{ alignSelf: "center", paddingTop: 30 }}>
-              <Text>Vous n'avez pas encore de compte ?</Text>
+            <View testID="test_view_navigation" style={{ alignSelf: "center", paddingTop: 30 }}>
+              <Text testID="test_text_beforeNavigation">Vous n'avez pas encore de compte ?</Text>
               <TouchableOpacity
+                testID="test_touchableOpacity_navigation"
                 style={{ alignSelf: "center" }}
                 onPress={() => this.props.navigation.navigate("SignUp")}
               >
-                <Text style={{ color: "#ba473c" }}>S'inscrire</Text>
+                <Text testID="test_text_navigation" style={{ color: "#ba473c" }}>S'inscrire</Text>
               </TouchableOpacity>
             </View>
           </View>
