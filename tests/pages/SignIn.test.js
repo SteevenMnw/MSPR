@@ -6,10 +6,10 @@ import {fireEvent, render} from '@testing-library/react-native'
 import {expect, it} from '@jest/globals';
 
 // Snapshop de l'ensemble de la page SignIn
-/*it('renders correctly', () => {
+it('renders correctly', () => {
   const tree = renderer.create(<SignIn />).toJSON();
   expect(tree).toMatchSnapshot();
-});*/
+});
 
 //Permet de generer un test
 it("renders default elements and styles",() => {
