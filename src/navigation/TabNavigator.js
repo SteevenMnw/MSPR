@@ -5,7 +5,8 @@ import Scan from "../pages/Scan";
 import Offers from "../pages/Offers";
 import Profile from "../pages/Profile";
 import TabBar from "../components/TabBar";
-import SignIn from "../pages/SignIn";
+
+
 
 const Tab = createBottomTabNavigator();
 const TabNavigator = () => {

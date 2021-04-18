@@ -16,6 +16,13 @@ export function getCouponById(id) {
   return axios.get(url).then((response) => response.data);
 }
 
+// Récupère les coupons disponible
+// https://springmspr.herokuapp.com/coupons/info=1
+export function getAvailableCoupons() {
+  const url = BASE_URL + "/coupons/info=1";
+  return url;
+}
+
 // Récupère tous les utilisateurs
 // https://springmspr.herokuapp.com/users/all
 export function getAllUsers() {
@@ -40,7 +47,7 @@ export function getUserByEmailAndPassword(email, password) {
 }
 
 // Ajout d'un coupon à l'utilisateur en utilisant l'id du coupon, l'id de l'utilisateur
-// https://springmspr.herokuapp.com/users/addCoupon
+// https://springmspr.herokuapp.com/users/1/addCoupon
 export function addCouponForUser(idUser, idCoupon) {
   const url = BASE_URL + `/users/${idUser}/addCoupon`;
   return axios
@@ -53,10 +60,11 @@ export function addCouponForUser(idUser, idCoupon) {
 export function addUser(mail, password, name, surname) {
   const url = BASE_URL + "/users/add";
   return axios
-  .post(url, null, { params: { mail, password, name, surname } })
-  .then((response) => response.data);
+    .post(url, null, { params: { mail, password, name, surname } })
+    .then((response) => response.data);
 }
 
+// Supprime le coupon d'un utilisateur
 export function deleteCouponForUser(idUser, idCoupon) {
   const url = BASE_URL + `/users/${idUser}/deleteCoupon`;
   return axios.put(url, null, { params: { idCoupon } });

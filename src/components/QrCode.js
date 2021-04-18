@@ -9,7 +9,12 @@ import ModalCoupon from "./ModalCoupon";
 const { width } = Dimensions.get("window");
 const qrSize = width * 0.7;
 
+/*
+  Composant qui est le scanner de QRCode
+*/
+
 export default function QrCode() {
+  // Initialisation des variables
   const [hasPermission, setHasPermission] = useState(null);
   const [scanned, setScanned] = useState(false);
   const [result, setResult] = useState("");
@@ -17,19 +22,23 @@ export default function QrCode() {
 
   useEffect(() => {
     (async () => {
+      // Demande la permission d'accéder à la caméra de l'utilisateur
       const { status } = await BarCodeScanner.requestPermissionsAsync();
       setHasPermission(status === "granted");
     })();
     if (result != "") {
+      // Si le résultat du Scan n'est pas vide on change la variable ShowModal à true
       setShowModal(true);
     }
   }, [result, showModal]);
 
-  const handleBarCodeScanned = ({ type, data }) => {
+  const handleBarCodeScanned = ({ data }) => {
+    // Dès qu'on scan on initialise le scanned à true pour dire qu'on a scanner et on stock le résultat dans une variable
     setScanned(true);
     setResult(data);
   };
 
+  // Retourne un message par rapport à la permission de la caméra
   if (hasPermission === null) {
     return <Text>Requesting for camera permission</Text>;
   }
@@ -52,6 +61,7 @@ export default function QrCode() {
         <Text style={styles.description}>Scanner votre QR Code</Text>
         <Image style={styles.qr} source={require("../../assets/img/Qr.png")} />
         {scanned && (
+          // Apparition du boutton dès qu'on scan pour rescan un qrCode avec la réinitialisation des variables
           <Button
             title={"Tap to Scan Again"}
             onPress={() => {
@@ -62,6 +72,7 @@ export default function QrCode() {
           />
         )}
       </BarCodeScanner>
+      {/* Dès qu'il y a un résultat par rapport au scan du QRCode on appel le composant ModalCoupon */}
       {showModal && <ModalCoupon visible={showModal} idCoupon={result} />}
     </View>
   );

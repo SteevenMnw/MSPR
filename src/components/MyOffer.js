@@ -2,16 +2,24 @@
 import React from "react";
 import { View, Text, StyleSheet, Button, Alert } from "react-native";
 import { deleteCouponForUser } from "../API/API_Access";
-
+import { Ionicons } from "@expo/vector-icons";
 import Clipboard from "expo-clipboard";
 
 import Toast from "react-native-tiny-toast";
 
+/* 
+  Composant qui sert à afficher un coupon avec les différentes informations et deux bouttons pour supprimer ou copié
+*/
+
 // create a component
 const MyOffer = (props) => {
+  // Données qu'on a envoyer depuis le composant QRCode
   const { offer, user } = props;
 
   const copyToClipboard = () => {
+    /*
+      Fonction qui sert à copié le code du copons dans le pressPapier
+    */
     Clipboard.setString(offer.libelle.toString());
     const toast = Toast.show("Code copié");
     setTimeout(() => {
@@ -20,6 +28,9 @@ const MyOffer = (props) => {
   };
 
   const deleteCoupon = (idCoupon) => {
+    /*
+      Fonction qui demande si l'utilisateur veut bien supprimé le coupon
+    */
     Alert.alert(
       null,
       "Voulez-vous vraiment supprimer le coupon de votre liste ?",
@@ -32,7 +43,9 @@ const MyOffer = (props) => {
         {
           text: "OUI",
           onPress: () => {
+            // Appel de la méthode API afin de supprimer dans la bdd le coupon que l'utilisateur a choisi
             deleteCouponForUser(user.id_user, idCoupon).then(() => {
+              // Envoie de la données dans la page Offers pour lui informer un changement dans la liste
               props.callBack(true);
             });
           },
@@ -55,12 +68,28 @@ const MyOffer = (props) => {
             alignItems: "center",
           }}
         >
-          <Button color="#d43f53" title="Copié" onPress={() => copyToClipboard()} />
+          <Ionicons
+            name="copy-outline"
+            size={40}
+            color="black"
+            onPress={() => copyToClipboard()}
+          />
+
           <Text> </Text>
-          <Button color="#000000" title="Supp" onPress={() => deleteCoupon(offer.id_coupon)} />
+
+          <Ionicons
+            name="trash-outline"
+            size={40}
+            color="#ba473c"
+            onPress={() => deleteCoupon(offer.id_coupon)}
+          />
         </View>
       </View>
-      <Text style={styles.date}>Valable jusqu'au {offer.date_end}</Text>
+      <Text style={{ fontWeight: "bold" }}>Code promo : {offer.libelle}</Text>
+      {/* Si le coupon à une date d'expiration */}
+      {offer.date_end && (
+        <Text style={styles.date}>Valable jusqu'au {offer.date_end}</Text>
+      )}
     </View>
   );
 };
@@ -68,7 +97,7 @@ const MyOffer = (props) => {
 // define your styles
 const styles = StyleSheet.create({
   button: {
-      color: "red",
+    color: "red",
   },
   container: {
     flex: 1,
@@ -100,5 +129,4 @@ const styles = StyleSheet.create({
   },
 });
 
-//make this component available to the app
 export default MyOffer;

@@ -8,13 +8,19 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 
 import MyOffer from "../components/MyOffer";
 
-// create a component
+/*
+  Page qui sert à afficher les offres enregistré de l'utilisateur connecté
+*/
+
 const Offers = () => {
+  // Initialisation des variables
   const [user, setUser] = useState([]);
   const [playOnce, setPlayOnce] = useState(false);
   const [reload, setReload] = useState(false);
+  const [refreshing, setRefreshing] = useState(false);
 
   useEffect(() => {
+    // Si on a pas encore lancer la page dans l'appli
     if (!playOnce) {
       getUserSession();
       setPlayOnce(true);
@@ -24,6 +30,9 @@ const Offers = () => {
   }, [reload]);
 
   getUserSession = async () => {
+    /*
+      Fonction qui récupère en session l'utilisateur connecté
+    */
     try {
       const value = await AsyncStorage.getItem("user");
       setUser(JSON.parse(value));
@@ -33,20 +42,37 @@ const Offers = () => {
   };
 
   ReloadUser = () => {
+    /*
+      Fonction qui récupère un utilisateur grâce à un id
+    */
     getUserById(user.id_user).then((data) => {
+      // Stock l'utilisateur trouvé dans une variable
       setUser(data);
+      setRefreshing(false);
     });
+  };
+
+  handleRefresh = () => {
+    /*
+      Fonction qui actualise la liste des coupons de l'utilisateur
+    */
+    setRefreshing(true);
+    ReloadUser();
   };
 
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Mes offres</Text>
+      {/* Liste des coupons de l'utilisateur */}
       <FlatList
         data={user.coupons}
         keyExtractor={(item) => item.id_coupon.toString()}
         renderItem={({ item }) => (
+          /* Appel du composant MyOffer pour chaque coupons */
           <MyOffer offer={item} user={user} callBack={setReload} />
         )}
+        refreshing={refreshing}
+        onRefresh={() => handleRefresh()}
       />
     </View>
   );
@@ -60,10 +86,11 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 40,
-    padding: 25,
-    marginTop: 20,
+    paddingLeft: 15,
+    paddingTop: 5,
+    paddingBottom: 5,
     fontWeight: "bold",
-    color: "#000000",
+    color: "#ba473c",
   },
 });
 
