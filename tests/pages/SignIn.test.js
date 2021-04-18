@@ -11,17 +11,20 @@ import {expect, it} from '@jest/globals';
   expect(tree).toMatchSnapshot();
 });*/
 
+//Permet de generer un test
 it("renders default elements and styles",() => {
-  const {getAllByText, getByPlaceholderText, getByText, getByTestId} = render(<SignIn />)
+  const {getAllByText, getByPlaceholderText ,getAllByPlaceholderText, getByText, getByTestId} = render(<SignIn />)
 
-  getByPlaceholderText("Mail");
-  getByPlaceholderText("Mot de passe");
+  //Permet de verifier si le placeholder existe bien(et qu'il en existe 1 de chaque)
+  expect(getAllByPlaceholderText("Mail").length).toBe(1);
+  expect(getAllByPlaceholderText("Mot de passe").length).toBe(1);
 
+  //Permet de verifier si le text bien(et qu'il en existe 1 de chaque)
   expect(getAllByText("Se connecter").length).toBe(1);
   expect(getAllByText("Vous n'avez pas encore de compte ?").length).toBe(1);
   expect(getAllByText("S'inscrire").length).toBe(1);
 
-
+  //Permet de verifier que le style correspond bien
   expect(getByTestId(/test_keyboardAvoidingView/i).props.style).toMatchSnapshot({
     "flex": 1,
   }, "test KeyboardAvoidingView style")
