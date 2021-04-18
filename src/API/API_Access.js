@@ -64,6 +64,7 @@ export function addUser(mail, password, name, surname) {
     .then((response) => response.data);
 }
 
+// Supprime le coupon d'un utilisateur
 export function deleteCouponForUser(idUser, idCoupon) {
   const url = BASE_URL + `/users/${idUser}/deleteCoupon`;
   return axios.put(url, null, { params: { idCoupon } });

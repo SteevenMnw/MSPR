@@ -1,18 +1,19 @@
 import React from "react";
-import { render } from "@testing-library/react-native";
+import { fireEvent, render, waitFor } from "@testing-library/react-native";
 
 import ModalCoupon from "../../src/components/ModalCoupon";
+import axios from "axios";
 
-it("renders", () => {
-  render(<ModalCoupon visible={true} idCoupon={1} />);
-});
+jest.mock("axios");
 
-it("modalShowTrue", () => {
-  const { getByText, getByTestId, queryByText } = render(
-    <ModalCoupon visible={true} idCoupon={4} />
-  );
+describe("ModalCoupon", function () {
+  it("return couponById", async () => {
+    const { getByTestId } = render(<ModalCoupon visible={true} idCoupon={4} />);
 
-  expect(getByTestId("descriptionCoupon").props.childrens).toBe(
-    "20% de réduction sur tous les produits du site."
-  );
+    const mockgetCouponById = jest.fn();
+
+    const description = getByTestId("coupon_description");
+
+    expect(description.props.children).toBe("n,;:!");
+  });
 });
