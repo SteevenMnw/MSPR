@@ -6,14 +6,14 @@ import {
   KeyboardAvoidingView,
   TouchableWithoutFeedback,
   Keyboard,
+  TouchableOpacity
 } from "react-native";
 
 import { Input, Button } from "react-native-elements";
-import Ionicons from "react-native-vector-icons/Ionicons";
+import Icon from 'react-native-vector-icons/Ionicons';
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { getUserByEmailAndPassword } from "../API/API_Access";
 import * as Crypto from "expo-crypto";
-import { TouchableOpacity } from "react-native-gesture-handler";
 
 class SignIn extends React.Component {
   constructor(props) {
@@ -46,39 +46,44 @@ class SignIn extends React.Component {
   };
 
   getUser = () => {
-    email = this.state.email;
-    passwd = this.state.passwd;
-    if (email && passwd) {
-      const value = Crypto.digestStringAsync(
-        Crypto.CryptoDigestAlgorithm.SHA256,
-        passwd
-      );
-      value.then((newPasswd) => {
-        getUserByEmailAndPassword(email, newPasswd)
-          .then((data) => {
-            this.setState({ dataSource: data });
-            if (this.state.dataSource) {
-              this.setUserSession(this.state.dataSource, this.state.passwd);
-              this.props.navigation.navigate("Home");
-            }
-          })
-          .catch(() =>
-            this.updateError("Votre mail ou mot de passe est invalide")
-          );
-      });
-    } else if (passwd == "" && email) {
-      this.updateError("Veuillez insérer votre mot de passe.");
-    } else if (email == "" && passwd) {
-      this.updateError("Veuillez insérer votre mail.");
-    } else {
-      this.updateError("Veuillez renseigner toutes les informations.");
+    try{
+      email = this.state.email;
+      passwd = this.state.passwd;
+      if (email && passwd) {
+        const value = Crypto.digestStringAsync(
+          Crypto.CryptoDigestAlgorithm.SHA256,
+          passwd
+        );
+        value.then((newPasswd) => {
+          getUserByEmailAndPassword(email, newPasswd)
+            .then((data) => {
+              this.setState({ dataSource: data });
+              if (this.state.dataSource) {
+                this.setUserSession(this.state.dataSource, this.state.passwd);
+                this.props.navigation.navigate("Home");
+              }
+            })
+            .catch(() =>
+              this.updateError("Votre mail ou mot de passe est invalide")
+            );
+        });
+      } else if (passwd == "" && email) {
+        this.updateError("Veuillez insérer votre mot de passe.");
+      } else if (email == "" && passwd) {
+        this.updateError("Veuillez insérer votre mail.");
+      } else {
+        this.updateError("Veuillez renseigner toutes les informations.");
+      }
+    }
+    catch(e){
+      console.log(e);
     }
   };
 
   render() {
     return (
       <KeyboardAvoidingView
-        behavior={Platform.OS === "ios" ? "padding" : "height"}
+        //behavior={Platform.OS === "ios" ? "padding" : "height"}
         style={styles.container}
       >
         <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
@@ -87,7 +92,7 @@ class SignIn extends React.Component {
               <Input
                 placeholder="Mail"
                 leftIcon={
-                  <Ionicons name="mail-outline" size={24} color="black" />
+                  <Icon name="mail-outline" size={24} color="black" />
                 }
                 onChangeText={this.updateEmail}
                 value={this.state.email}
@@ -96,7 +101,7 @@ class SignIn extends React.Component {
                 secureTextEntry={true}
                 placeholder="Mot de passe"
                 leftIcon={
-                  <Ionicons
+                  <Icon
                     name="lock-closed-outline"
                     size={24}
                     color="black"
@@ -107,7 +112,7 @@ class SignIn extends React.Component {
               />
             </View>
             <View>
-              <Text style={styles.Error}>{this.state.error}</Text>
+              <Text testID="error" style={styles.Error}>{this.state.error}</Text>
               <Button
                 buttonStyle={{
                   width: 150,
