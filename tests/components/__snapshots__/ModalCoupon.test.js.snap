@@ -1,0 +1,155 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<Modal
+  animationType="fade"
+  hardwareAccelerated={false}
+  onRequestClose={[Function]}
+  transparent={true}
+  visible={true}
+>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "flex": 1,
+        "justifyContent": "center",
+        "marginTop": 22,
+      }
+    }
+  >
+    <View
+      style={
+        Object {
+          "backgroundColor": "white",
+          "borderRadius": 20,
+          "elevation": 5,
+          "margin": 20,
+          "padding": 35,
+          "position": "absolute",
+          "shadowColor": "#000",
+          "shadowOffset": Object {
+            "height": 2,
+            "width": 0,
+          },
+          "shadowOpacity": 0.25,
+          "shadowRadius": 4,
+        }
+      }
+    >
+      <View>
+        <Text
+          style={
+            Object {
+              "fontSize": 18,
+              "fontWeight": "bold",
+              "marginBottom": 10,
+              "textAlign": "left",
+            }
+          }
+        >
+          Description du coupon : 
+        </Text>
+        <Text
+          style={
+            Object {
+              "marginBottom": 15,
+            }
+          }
+        />
+        <View
+          style={
+            Object {
+              "marginTop": 20,
+            }
+          }
+        >
+          <View
+            style={
+              Object {
+                "flexDirection": "row",
+                "justifyContent": "space-between",
+              }
+            }
+          >
+            <View
+              accessible={true}
+              focusable={true}
+              onBlur={[Function]}
+              onClick={[Function]}
+              onFocus={[Function]}
+              onResponderGrant={[Function]}
+              onResponderMove={[Function]}
+              onResponderRelease={[Function]}
+              onResponderTerminate={[Function]}
+              onResponderTerminationRequest={[Function]}
+              onStartShouldSetResponder={[Function]}
+              style={
+                Array [
+                  Object {
+                    "borderRadius": 20,
+                    "elevation": 2,
+                    "padding": 15,
+                  },
+                  Object {
+                    "backgroundColor": "green",
+                  },
+                ]
+              }
+            >
+              <Text
+                style={
+                  Object {
+                    "color": "white",
+                    "fontWeight": "bold",
+                    "textAlign": "center",
+                  }
+                }
+              >
+                Ajouter à votre liste
+              </Text>
+            </View>
+            <View
+              accessible={true}
+              focusable={true}
+              onBlur={[Function]}
+              onClick={[Function]}
+              onFocus={[Function]}
+              onResponderGrant={[Function]}
+              onResponderMove={[Function]}
+              onResponderRelease={[Function]}
+              onResponderTerminate={[Function]}
+              onResponderTerminationRequest={[Function]}
+              onStartShouldSetResponder={[Function]}
+              style={
+                Array [
+                  Object {
+                    "borderRadius": 20,
+                    "elevation": 2,
+                    "padding": 15,
+                  },
+                  Object {
+                    "backgroundColor": "#FF5D3B",
+                  },
+                ]
+              }
+            >
+              <Text
+                style={
+                  Object {
+                    "color": "white",
+                    "fontWeight": "bold",
+                    "textAlign": "center",
+                  }
+                }
+              >
+                Fermer
+              </Text>
+            </View>
+          </View>
+        </View>
+      </View>
+    </View>
+  </View>
+</Modal>
+`;

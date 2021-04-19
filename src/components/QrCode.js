@@ -40,26 +40,31 @@ export default function QrCode() {
 
   // Retourne un message par rapport à la permission de la caméra
   if (hasPermission === null) {
-    return <Text>Requesting for camera permission</Text>;
+    return (
+      <Text testID="test_text_RequestCamera">
+        Requesting for camera permission
+      </Text>
+    );
   }
   if (hasPermission === false) {
-    return <Text>No access to camera</Text>;
+    return <Text testID="test_text_NoAccessCamera">No access to camera</Text>;
   }
 
   return (
-    <View
-      style={{
-        flex: 1,
-        flexDirection: "column",
-        justifyContent: "flex-end",
-      }}
-    >
+    <View style={styles.main_container} testID="test_view_mainContainer">
       <BarCodeScanner
         onBarCodeScanned={scanned ? undefined : handleBarCodeScanned}
         style={[StyleSheet.absoluteFillObject, styles.container]}
+        testID="test_BarCodeScanner"
       >
-        <Text style={styles.description}>Scanner votre QR Code</Text>
-        <Image style={styles.qr} source={require("../../assets/img/Qr.png")} />
+        <Text style={styles.description} testID="test_text_description">
+          Scanner votre QR Code
+        </Text>
+        <Image
+          style={styles.qr}
+          source={require("../../assets/img/Qr.png")}
+          testID="test_image"
+        />
         {scanned && (
           // Apparition du boutton dès qu'on scan pour rescan un qrCode avec la réinitialisation des variables
           <Button
@@ -69,6 +74,7 @@ export default function QrCode() {
               setResult("");
               setShowModal(false);
             }}
+            testID="test_button_scanAgain"
           />
         )}
       </BarCodeScanner>
@@ -79,6 +85,11 @@ export default function QrCode() {
 }
 
 const styles = StyleSheet.create({
+  main_container: {
+    flex: 1,
+    flexDirection: "column",
+    justifyContent: "flex-end",
+  },
   container: {
     flex: 1,
     justifyContent: "center",

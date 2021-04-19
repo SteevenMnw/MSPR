@@ -6,8 +6,6 @@ import Offers from "../pages/Offers";
 import Profile from "../pages/Profile";
 import TabBar from "../components/TabBar";
 
-
-
 const Tab = createBottomTabNavigator();
 const TabNavigator = () => {
   return (

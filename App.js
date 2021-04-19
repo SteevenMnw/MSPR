@@ -3,7 +3,11 @@ import { NavigationContainer, CommonActions } from "@react-navigation/native";
 import { Text, Alert } from "react-native";
 import SignIn from "./src/pages/SignIn";
 import TabNavigator from "./src/navigation/TabNavigator";
-import { createStackNavigator } from "@react-navigation/stack";
+import {
+  createStackNavigator,
+  StackActions,
+  NavigationActions,
+} from "@react-navigation/stack";
 import SignUp from "./src/pages/SignUp";
 import { MaterialIcons } from "@expo/vector-icons";
 import AsyncStorage from "@react-native-async-storage/async-storage";
@@ -12,7 +16,7 @@ const Stack = createStackNavigator();
 
 const navigationRef = React.createRef();
 export function navigate(name) {
-    navigationRef.current?.dispatch(CommonActions.navigate(name));
+  navigationRef.current?.dispatch(CommonActions.navigate(name));
 }
 
 const createTwoButtonAlert = () => {
