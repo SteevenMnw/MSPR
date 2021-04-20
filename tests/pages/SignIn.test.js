@@ -35,43 +35,40 @@ it("renders default elements and styles",() => {
   expect(getByTestId(/test_view_input/i).props.style).toMatchSnapshot({
     "paddingLeft": 70,
     "paddingRight": 70,
-  }, "test Input style")
+  }, "test View Input style")
   expect(getByPlaceholderText(/Mail/i).parent.props.style).toMatchSnapshot({
     "alignItems": "center",
     "borderBottomWidth": 1,
     "borderColor": "#86939e",
     "flexDirection": "row",
-  }, "test PlaceHolder Input Mail style")
-  expect(getByTestId(/test_input_mail/i).props.style).toMatchSnapshot({
+  }, "test Email Placeholder style")
+  expect(getByTestId(/test_input_email/i).props.style).toMatchSnapshot({
     "alignSelf": "center",
     "color": "#242424",
     "flex": 1,
     "fontSize": 18,
     "minHeight": 40,
-  }, "test InputMail style")
+  }, "test Email Input style")
   expect(getByPlaceholderText(/Mot de passe/i).parent.props.style).toMatchSnapshot({
     "alignItems": "center",
     "borderBottomWidth": 1,
     "borderColor": "#86939e",
     "flexDirection": "row",
-  }, "test PlaceHolder Input MotDePasse style")
-  expect(getByTestId(/test_input_motDePasse/i).props.style).toMatchSnapshot({
+  }, "test Password Placeholder style")
+  expect(getByTestId(/test_input_password/i).props.style).toMatchSnapshot({
     "alignSelf": "center",
     "color": "#242424",
     "flex": 1,
     "fontSize": 18,
     "minHeight": 40,
-  }, "test InputMotDePasse style")
+  }, "test Password Input style")
   expect(getByTestId(/test_view_error-button/i).props.style).toBeUndefined()
   expect(getByTestId(/test_text_error/i).props.style).toMatchSnapshot({
     "alignSelf": "center",
     "color": "red",
     "fontSize": 17,
     "paddingBottom": 25,
-  }, "test Text Error style")
-  expect(getByTestId(/test_button_signIn/i).props.style).toMatchSnapshot({
-    "opacity": 1,
-  }, "test View Button SignIn style")
+  }, "test Error Text style")
   expect(getByText(/Se connecter/i).parent.props.style).toMatchSnapshot({
     "alignItems": "center",
     "alignSelf": "center",
@@ -83,27 +80,24 @@ it("renders default elements and styles",() => {
     "justifyContent": "center",
     "padding": 8,
     "width": 150,
-  }, "test Button SignIn style")
+  }, "test SignIn Button style")
   expect(getByText(/Se connecter/i).props.style).toMatchSnapshot({
     "color": "white",
     "fontSize": 18,
     "paddingVertical": 1,
     "textAlign": "center",
-  }, "test Text Button SignIn style")
+  }, "test SignIn Text style")
   expect(getByTestId(/test_view_navigation/i).props.style).toMatchSnapshot({
     "alignSelf": "center",
     "paddingTop": 30,
-  }, "test View Navigation style")
+  }, "test Navigation View style")
   expect(getByTestId(/test_text_beforeNavigation/i).props.style).toBeUndefined()
   expect(getByText(/Vous n'avez pas encore de compte ?/i).props.style).toBeUndefined()
   expect(getByTestId(/test_touchableOpacity_navigation/i).props.style).toMatchSnapshot({
     "alignSelf": "center",
     "opacity": 1,
-  }, "test touchableOpacity Navigation style")
+  }, "test Navigation TouchableOpacity style")
   expect(getByTestId(/test_text_navigation/i).props.style).toMatchSnapshot({
     "color": "#ba473c",
-  }, "test Text Navigation style1")
-  expect(getByText(/S'inscrire/i).props.style).toMatchSnapshot({
-    "color": "#ba473c",
-  }, "test Text Navigation style2")
+  }, "test Navigation Text style")
 });

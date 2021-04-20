@@ -1,11 +1,9 @@
 import React from "react";
-import { View, StyleSheet, Text } from "react-native";
-
+import { View, StyleSheet, Text, TouchableOpacity, ScrollView } from "react-native";
 import { Input, Button } from "react-native-elements";
-import Ionicons from "react-native-vector-icons/Ionicons";
+import Icon from 'react-native-vector-icons/Ionicons';
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { addUser, getUserByEmailAndPassword } from "../API/API_Access";
-import { ScrollView, TouchableOpacity } from "react-native-gesture-handler";
 import * as Crypto from "expo-crypto";
 
 class SignUp extends React.Component {
@@ -115,65 +113,74 @@ class SignUp extends React.Component {
 
   render() {
     return (
-      <View style={styles.main_container}>
-      <ScrollView style={{ paddingVertical: 80 }}>
-        <View style={styles.Input}>
+      <View testID="test_view_mainContainer" style={styles.main_container}>
+      <ScrollView testID="test_scrollView" style={{ paddingVertical: 80 }}>
+        <View testID="test_view_input" style={styles.Input}>
           <Input
+            testID="test_input_name"
             placeholder="Nom"
             leftIcon={
-              <Ionicons name="person-outline" size={24} color="black" />
+              <Icon name="person-outline" size={24} color="black" />
             }
             onChangeText={this.updateName}
             value={this.state.name}
           />
           <Input
+            testID="test_input_surname"
             placeholder="Prenom"
             leftIcon={
-              <Ionicons name="people-outline" size={24} color="black" />
+              <Icon name="people-outline" size={24} color="black" />
             }
             onChangeText={this.updateSurname}
             value={this.state.surname}
           />
           <Input
+            testID="test_input_email"
             placeholder="Mail"
-            leftIcon={<Ionicons name="mail-outline" size={24} color="black" />}
+            leftIcon={
+              <Icon name="mail-outline" size={24} color="black" />
+            }
             onChangeText={this.updateEmail}
             value={this.state.email}
           />
           <Input
+            testID="test_input_password"
             secureTextEntry={true}
             placeholder="Mot de passe"
             leftIcon={
-              <Ionicons name="lock-closed-outline" size={24} color="black" />
+              <Icon name="lock-closed-outline" size={24} color="black" />
             }
             onChangeText={this.updatePasswd}
             value={this.state.passwd}
           />
           <Input
+            testID="test_input_checkPassword"
             secureTextEntry={true}
-            placeholder="Confirmer Mot de passe"
+            placeholder="Confirmer mot de passe"
             leftIcon={
-              <Ionicons name="lock-closed-outline" size={24} color="black" />
+              <Icon name="lock-closed-outline" size={24} color="black" />
             }
             onChangeText={this.updatecheckPasswd}
             value={this.state.checkPasswd}
           />
         </View>
-        <View>
-          <Text style={styles.Error}>{this.state.error}</Text>
+        <View testID="test_view_error-button">
+          <Text testID="test_text_error" style={styles.Error}>{this.state.error}</Text>
           <Button
+            testID="test_button_signUp"
             buttonStyle={{ width: 150, alignSelf: "center", backgroundColor: "#ba473c" }}
             title="S'inscrire"
             onPress={this.signUp}
           />
         </View>
-        <View style={{ alignSelf: "center", paddingTop: 30  }}>
-          <Text>Vous avez déjà un compte ?</Text>
+        <View testID="test_view_navigation" style={{ alignSelf: "center", paddingTop: 30  }}>
+          <Text testID="test_text_beforeNavigation" >Vous avez déjà un compte ?</Text>
           <TouchableOpacity
+            testID="test_touchableOpacity_navigation"
             style={{ alignSelf: "center" }}
             onPress={() => this.props.navigation.navigate("SignIn")}
           >
-            <Text style={{ color: "#ba473c" }}>Se connecter</Text>
+            <Text testID="test_text_navigation" style={{ color: "#ba473c" }}>Se connecter</Text>
           </TouchableOpacity>
         </View>
       </ScrollView>
