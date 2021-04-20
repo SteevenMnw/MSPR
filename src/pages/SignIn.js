@@ -1,14 +1,5 @@
 import React from "react";
-import {
-  View,
-  StyleSheet,
-  Text,
-  KeyboardAvoidingView,
-  TouchableWithoutFeedback,
-  Keyboard,
-  TouchableOpacity
-} from "react-native";
-
+import { View, StyleSheet, Text, KeyboardAvoidingView, TouchableWithoutFeedback, Keyboard, TouchableOpacity} from "react-native";
 import { Input, Button } from "react-native-elements";
 import Icon from 'react-native-vector-icons/Ionicons';
 import AsyncStorage from "@react-native-async-storage/async-storage";
@@ -90,7 +81,7 @@ class SignIn extends React.Component {
           <View testID="test_view_mainContainer" style={styles.main_container}>
             <View testID="test_view_input" style={styles.Input}>
               <Input
-                testID="test_input_mail"
+                testID="test_input_email"
                 placeholder="Mail"
                 leftIcon={
                   <Icon 
@@ -103,7 +94,7 @@ class SignIn extends React.Component {
                 value={this.state.email}
               />
               <Input
-                testID="test_input_motDePasse"
+                testID="test_input_password"
                 secureTextEntry={true}
                 placeholder="Mot de passe"
                 leftIcon={

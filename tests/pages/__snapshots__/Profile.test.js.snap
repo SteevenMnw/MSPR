@@ -1,0 +1,346 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`render of Accountinfo 1`] = `
+<View
+  style={
+    Object {
+      "backgroundColor": "#E8E8E8",
+      "flex": 1,
+    }
+  }
+  testID="view_container"
+>
+  <Text
+    style={
+      Object {
+        "color": "#ba473c",
+        "fontSize": 40,
+        "fontWeight": "bold",
+        "paddingLeft": 15,
+        "paddingTop": 5,
+      }
+    }
+    testID="text_monCompte"
+  >
+    Mon Compte
+  </Text>
+  <View>
+    <View
+      style={
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "#ffff",
+          "borderColor": "#F05454",
+          "borderRadius": 10,
+          "borderWidth": 2,
+          "flexDirection": "row",
+          "justifyContent": "space-between",
+          "margin": 15,
+          "padding": 15,
+        }
+      }
+    >
+      <Text
+        style={
+          Object {
+            "fontSize": 15,
+            "fontWeight": "bold",
+            "paddingLeft": 10,
+          }
+        }
+      >
+        Nom 
+      </Text>
+      <Text
+        style={
+          Object {
+            "marginHorizontal": 123,
+          }
+        }
+      />
+    </View>
+    <View
+      style={
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "#ffff",
+          "borderColor": "#F05454",
+          "borderRadius": 10,
+          "borderWidth": 2,
+          "flexDirection": "row",
+          "justifyContent": "space-between",
+          "margin": 15,
+          "padding": 15,
+        }
+      }
+    >
+      <Text
+        style={
+          Object {
+            "fontSize": 15,
+            "fontWeight": "bold",
+            "paddingLeft": 10,
+          }
+        }
+      >
+        Prénom
+      </Text>
+      <Text
+        style={
+          Object {
+            "marginHorizontal": 123,
+          }
+        }
+      />
+    </View>
+    <View
+      style={
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "#ffff",
+          "borderColor": "#F05454",
+          "borderRadius": 10,
+          "borderWidth": 2,
+          "flexDirection": "row",
+          "justifyContent": "space-between",
+          "margin": 15,
+          "padding": 15,
+        }
+      }
+    >
+      <Text
+        style={
+          Object {
+            "fontSize": 15,
+            "fontWeight": "bold",
+            "paddingLeft": 10,
+          }
+        }
+      >
+        Email
+      </Text>
+      <Text
+        style={
+          Object {
+            "marginHorizontal": 123,
+          }
+        }
+      />
+    </View>
+    <View
+      style={
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "#ffff",
+          "borderColor": "#F05454",
+          "borderRadius": 10,
+          "borderWidth": 2,
+          "flexDirection": "row",
+          "justifyContent": "space-between",
+          "margin": 15,
+          "padding": 15,
+        }
+      }
+    >
+      <Text
+        style={
+          Object {
+            "fontSize": 15,
+            "fontWeight": "bold",
+            "paddingLeft": 10,
+          }
+        }
+      >
+        Mot de passe
+      </Text>
+      <Text>
+        
+      </Text>
+      <Text />
+    </View>
+  </View>
+</View>
+`;
+
+exports[`render of Profile page 1`] = `
+<View
+  style={
+    Object {
+      "backgroundColor": "#E8E8E8",
+      "flex": 1,
+    }
+  }
+  testID="view_container"
+>
+  <Text
+    style={
+      Object {
+        "color": "#ba473c",
+        "fontSize": 40,
+        "fontWeight": "bold",
+        "paddingLeft": 15,
+        "paddingTop": 5,
+      }
+    }
+    testID="text_monCompte"
+  >
+    Mon Compte
+  </Text>
+  <View>
+    <View
+      style={
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "#ffff",
+          "borderColor": "#F05454",
+          "borderRadius": 10,
+          "borderWidth": 2,
+          "flexDirection": "row",
+          "justifyContent": "space-between",
+          "margin": 15,
+          "padding": 15,
+        }
+      }
+      testID="test_champView1"
+    >
+      <Text
+        style={
+          Object {
+            "fontSize": 15,
+            "fontWeight": "bold",
+            "paddingLeft": 10,
+          }
+        }
+      >
+        Nom
+      </Text>
+      <Text
+        style={
+          Object {
+            "marginHorizontal": 123,
+          }
+        }
+      />
+    </View>
+    <View
+      style={
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "#ffff",
+          "borderColor": "#F05454",
+          "borderRadius": 10,
+          "borderWidth": 2,
+          "flexDirection": "row",
+          "justifyContent": "space-between",
+          "margin": 15,
+          "padding": 15,
+        }
+      }
+      testID="test_champView2"
+    >
+      <Text
+        style={
+          Object {
+            "fontSize": 15,
+            "fontWeight": "bold",
+            "paddingLeft": 10,
+          }
+        }
+      >
+        Prenom
+      </Text>
+      <Text
+        style={
+          Object {
+            "marginHorizontal": 123,
+          }
+        }
+      />
+    </View>
+    <View
+      style={
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "#ffff",
+          "borderColor": "#F05454",
+          "borderRadius": 10,
+          "borderWidth": 2,
+          "flexDirection": "row",
+          "justifyContent": "space-between",
+          "margin": 15,
+          "padding": 15,
+        }
+      }
+      testID="test_champView3"
+    >
+      <Text
+        style={
+          Object {
+            "fontSize": 15,
+            "fontWeight": "bold",
+            "paddingLeft": 10,
+          }
+        }
+      >
+        Email
+      </Text>
+      <Text
+        style={
+          Object {
+            "marginHorizontal": 123,
+          }
+        }
+      />
+    </View>
+    <View
+      style={
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "#ffff",
+          "borderColor": "#F05454",
+          "borderRadius": 10,
+          "borderWidth": 2,
+          "flexDirection": "row",
+          "justifyContent": "space-between",
+          "margin": 15,
+          "padding": 15,
+        }
+      }
+      testID="test_champView4"
+    >
+      <Text
+        style={
+          Object {
+            "fontSize": 15,
+            "fontWeight": "bold",
+            "paddingLeft": 10,
+          }
+        }
+      >
+        Mot de passe
+      </Text>
+      <Text>
+        
+      </Text>
+      <Text />
+    </View>
+  </View>
+</View>
+`;
+
+exports[`renders default elements and styles: test container style 1`] = `
+Object {
+  "backgroundColor": "#E8E8E8",
+  "flex": 1,
+}
+`;
+
+exports[`renders default elements and styles: test textMonCompte style 1`] = `
+Object {
+  "color": "#ba473c",
+  "fontSize": 40,
+  "fontWeight": "bold",
+  "paddingLeft": 15,
+  "paddingTop": 5,
+}
+`;

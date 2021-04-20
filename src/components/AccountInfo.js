@@ -54,22 +54,22 @@ const AccountInfo = () => {
 
   return (
     <View>
-      <View style={styles.champ}>
-        <Text style={styles.champName}>Nom </Text>
-        <Text style={styles.champUser}>{user.surname}</Text>
+      <View  testID="test_champView1" style={styles.champ}>
+        <Text  style={styles.champName}>Nom</Text>
+        <Text  style={styles.champUser}>{user.surname}</Text>
       </View>
 
-      <View style={styles.champ}>
-        <Text style={styles.champName}>Prénom</Text>
+      <View testID="test_champView2" style={styles.champ}>
+        <Text  style={styles.champName}>Prenom</Text>
         <Text style={styles.champUser}>{user.name}</Text>
       </View>
 
-      <View style={styles.champ}>
+      <View testID="test_champView3"  style={styles.champ}>
         <Text style={styles.champName}>Email</Text>
         <Text style={styles.champUser}>{user.mail}</Text>
       </View>
 
-      <View style={styles.champ}>
+      <View testID="test_champView4"  style={styles.champ}>
         <Text style={styles.champName}>Mot de passe</Text>
         <Text>{ userPassword }</Text>
         <Ionicons name="eye-outline" size={40} color="black" onPress={asteriskPassword}/>
@@ -105,6 +105,5 @@ const styles = StyleSheet.create({
   champUser: {
     marginHorizontal: 123,
   },
-  modifButton: {},
 });
 export default AccountInfo;

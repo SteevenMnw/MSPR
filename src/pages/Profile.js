@@ -10,8 +10,8 @@ class Profile extends React.Component {
   }
   render() {
     return (
-      <View style={styles.container}>
-        <Text style={styles.text}>Mon Compte</Text>
+      <View testID="view_container" style={styles.container}>
+        <Text testID="text_monCompte" style={styles.text}>Mon Compte</Text>
         <AccountInfo/>
       </View>
     );
