@@ -44,8 +44,8 @@ function MyStack() {
       }}
     >
       <Stack.Screen
-        name="SignUp"
-        component={SignUp}
+        name="SignIn"
+        component={SignIn}
         options={{
           title: "Connexion",
           headerTintColor: "#fff",
@@ -55,8 +55,8 @@ function MyStack() {
         }}
       />
       <Stack.Screen
-        name="SignIn"
-        component={SignIn}
+        name="SignUp"
+        component={SignUp}
         options={{
           title: "Inscription",
           headerTintColor: "#fff",
