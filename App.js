@@ -1,6 +1,6 @@
 import React from "react";
 import { NavigationContainer, CommonActions } from "@react-navigation/native";
-import { Text, Alert } from "react-native";
+import { Text, Alert, BackHandler } from "react-native";
 import SignIn from "./src/pages/SignIn";
 import TabNavigator from "./src/navigation/TabNavigator";
 import {
@@ -21,8 +21,8 @@ export function navigate(name) {
 
 const createTwoButtonAlert = () => {
   Alert.alert(
-    "Déconnexion",
-    "Voulez-vous vraiment vous déconnecter ?",
+    "Leave",
+    "Voulez-vous vraiment quitter GoStyle ?",
     [
       {
         text: "Non",
@@ -32,7 +32,7 @@ const createTwoButtonAlert = () => {
         text: "Oui",
         onPress: () => {
           AsyncStorage.clear();
-          navigate("SignIn");
+          BackHandler.exitApp();
         },
       },
     ],
