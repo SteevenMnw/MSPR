@@ -89,7 +89,7 @@ exports[`renders correctly 1`] = `
                 "minHeight": 40,
               }
             }
-            testID="test_input_mail"
+            testID="test_input_email"
             underlineColorAndroid="transparent"
             value=""
           />
@@ -157,7 +157,7 @@ exports[`renders correctly 1`] = `
                 "minHeight": 40,
               }
             }
-            testID="test_input_motDePasse"
+            testID="test_input_password"
             underlineColorAndroid="transparent"
             value=""
           />
@@ -308,45 +308,36 @@ exports[`renders correctly 1`] = `
 </View>
 `;
 
-exports[`renders default elements and styles: test Button SignIn style 1`] = `
+exports[`renders default elements and styles: test Email Input style 1`] = `
+Object {
+  "alignSelf": "center",
+  "color": "#242424",
+  "flex": 1,
+  "fontSize": 18,
+  "minHeight": 40,
+}
+`;
+
+exports[`renders default elements and styles: test Email Placeholder style 1`] = `
 Object {
   "alignItems": "center",
-  "alignSelf": "center",
-  "backgroundColor": "#ba473c",
-  "borderColor": "#2089dc",
-  "borderRadius": 3,
-  "borderWidth": 0,
+  "borderBottomWidth": 1,
+  "borderColor": "#86939e",
   "flexDirection": "row",
-  "justifyContent": "center",
-  "padding": 8,
-  "width": 150,
+  "transform": Array [
+    Object {
+      "translateX": 0,
+    },
+  ],
 }
 `;
 
-exports[`renders default elements and styles: test Input style 1`] = `
-Object {
-  "paddingLeft": 70,
-  "paddingRight": 70,
-}
-`;
-
-exports[`renders default elements and styles: test InputMail style 1`] = `
+exports[`renders default elements and styles: test Error Text style 1`] = `
 Object {
   "alignSelf": "center",
-  "color": "#242424",
-  "flex": 1,
-  "fontSize": 18,
-  "minHeight": 40,
-}
-`;
-
-exports[`renders default elements and styles: test InputMotDePasse style 1`] = `
-Object {
-  "alignSelf": "center",
-  "color": "#242424",
-  "flex": 1,
-  "fontSize": 18,
-  "minHeight": 40,
+  "color": "red",
+  "fontSize": 17,
+  "paddingBottom": 25,
 }
 `;
 
@@ -363,7 +354,37 @@ Object {
 }
 `;
 
-exports[`renders default elements and styles: test PlaceHolder Input Mail style 1`] = `
+exports[`renders default elements and styles: test Navigation Text style 1`] = `
+Object {
+  "color": "#ba473c",
+}
+`;
+
+exports[`renders default elements and styles: test Navigation TouchableOpacity style 1`] = `
+Object {
+  "alignSelf": "center",
+  "opacity": 1,
+}
+`;
+
+exports[`renders default elements and styles: test Navigation View style 1`] = `
+Object {
+  "alignSelf": "center",
+  "paddingTop": 30,
+}
+`;
+
+exports[`renders default elements and styles: test Password Input style 1`] = `
+Object {
+  "alignSelf": "center",
+  "color": "#242424",
+  "flex": 1,
+  "fontSize": 18,
+  "minHeight": 40,
+}
+`;
+
+exports[`renders default elements and styles: test Password Placeholder style 1`] = `
 Object {
   "alignItems": "center",
   "borderBottomWidth": 1,
@@ -377,21 +398,22 @@ Object {
 }
 `;
 
-exports[`renders default elements and styles: test PlaceHolder Input MotDePasse style 1`] = `
+exports[`renders default elements and styles: test SignIn Button style 1`] = `
 Object {
   "alignItems": "center",
-  "borderBottomWidth": 1,
-  "borderColor": "#86939e",
+  "alignSelf": "center",
+  "backgroundColor": "#ba473c",
+  "borderColor": "#2089dc",
+  "borderRadius": 3,
+  "borderWidth": 0,
   "flexDirection": "row",
-  "transform": Array [
-    Object {
-      "translateX": 0,
-    },
-  ],
+  "justifyContent": "center",
+  "padding": 8,
+  "width": 150,
 }
 `;
 
-exports[`renders default elements and styles: test Text Button SignIn style 1`] = `
+exports[`renders default elements and styles: test SignIn Text style 1`] = `
 Object {
   "color": "white",
   "fontSize": 18,
@@ -400,43 +422,9 @@ Object {
 }
 `;
 
-exports[`renders default elements and styles: test Text Error style 1`] = `
+exports[`renders default elements and styles: test View Input style 1`] = `
 Object {
-  "alignSelf": "center",
-  "color": "red",
-  "fontSize": 17,
-  "paddingBottom": 25,
-}
-`;
-
-exports[`renders default elements and styles: test Text Navigation style1 1`] = `
-Object {
-  "color": "#ba473c",
-}
-`;
-
-exports[`renders default elements and styles: test Text Navigation style2 1`] = `
-Object {
-  "color": "#ba473c",
-}
-`;
-
-exports[`renders default elements and styles: test View Button SignIn style 1`] = `
-Object {
-  "opacity": 1,
-}
-`;
-
-exports[`renders default elements and styles: test View Navigation style 1`] = `
-Object {
-  "alignSelf": "center",
-  "paddingTop": 30,
-}
-`;
-
-exports[`renders default elements and styles: test touchableOpacity Navigation style 1`] = `
-Object {
-  "alignSelf": "center",
-  "opacity": 1,
+  "paddingLeft": 70,
+  "paddingRight": 70,
 }
 `;
