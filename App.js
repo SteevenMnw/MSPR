@@ -3,11 +3,7 @@ import { NavigationContainer, CommonActions } from "@react-navigation/native";
 import { Text, Alert, BackHandler } from "react-native";
 import SignIn from "./src/pages/SignIn";
 import TabNavigator from "./src/navigation/TabNavigator";
-import {
-  createStackNavigator,
-  StackActions,
-  NavigationActions,
-} from "@react-navigation/stack";
+import { createStackNavigator } from "@react-navigation/stack";
 import SignUp from "./src/pages/SignUp";
 import { MaterialIcons } from "@expo/vector-icons";
 import AsyncStorage from "@react-native-async-storage/async-storage";

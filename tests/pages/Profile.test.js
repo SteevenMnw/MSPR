@@ -1,8 +1,8 @@
 import 'react-native';
 import React from 'react';
-import renderer,{ ReactTestInstance } from 'react-test-renderer';
+import renderer from 'react-test-renderer';
 import Profile from "../../src/pages/Profile";
-import { fireEvent, render } from '@testing-library/react-native'
+import { render } from '@testing-library/react-native'
 import { expect, it } from '@jest/globals';
 
 it('render of Profile page',()=>{

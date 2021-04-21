@@ -2,8 +2,8 @@ import 'react-native';
 import React from 'react';
 import renderer from 'react-test-renderer';
 import SignIn from "../../src/pages/SignIn";
-import {fireEvent, render} from '@testing-library/react-native'
-import {expect, it} from '@jest/globals';
+import { render } from '@testing-library/react-native'
+import { expect, it } from '@jest/globals';
 
 // Snapshop de l'ensemble de la page SignIn
 it('renders correctly', () => {
