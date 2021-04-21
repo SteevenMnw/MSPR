@@ -11,8 +11,10 @@ class Profile extends React.Component {
   render() {
     return (
       <View testID="view_container" style={styles.container}>
-        <Text testID="text_monCompte" style={styles.text}>Mon Compte</Text>
-        <AccountInfo/>
+        <Text testID="text_monCompte" style={styles.text}>
+          Mon Compte
+        </Text>
+        <AccountInfo />
       </View>
     );
   }
@@ -27,7 +29,7 @@ const styles = StyleSheet.create({
   text: {
     fontSize: 40,
     paddingLeft: 15,
-    paddingTop:5,
+    paddingTop: 5,
     fontWeight: "bold",
     color: "#ba473c",
   },

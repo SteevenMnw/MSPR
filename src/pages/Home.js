@@ -25,7 +25,7 @@ class Home extends React.Component {
       });
   }
 
-  _renderItem = ({ item }) => (<HomeCard offer={item} />);
+  _renderItem = ({ item }) => <HomeCard offer={item} />;
 
   render() {
     if (this.state.isLoading) {
@@ -59,7 +59,7 @@ const styles = StyleSheet.create({
     fontSize: 40,
     paddingLeft: 15,
     paddingTop: 5,
-    paddingBottom:5,
+    paddingBottom: 5,
     fontWeight: "bold",
     color: "#ba473c",
   },
