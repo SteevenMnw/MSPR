@@ -6,16 +6,17 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 import Icon from "react-native-vector-icons/Ionicons";
 import Toast from "react-native-tiny-toast";
 
-// create a component
+// Create a component
 const HomeCard = (props) => {
+  // Initialization of variables
   const { offer } = props;
-
   const [user, setUser] = useState([]);
 
   useEffect(() => {
     getUserSession();
   }, []);
 
+  // Put user infos in session
   getUserSession = async () => {
     try {
       const value = await AsyncStorage.getItem("user");
@@ -25,14 +26,18 @@ const HomeCard = (props) => {
     }
   };
 
+  // Add coupons to the list
   addCoupons = (idCoupon) => {
+    // Call api method with the user id and the coupon id in parameters, for add coupons in DB.
     addCouponForUser(user.id_user, idCoupon)
+      // If ok = show a validation message
       .then(() => {
         const toast = Toast.show("Coupon ajouté à votre liste");
         setTimeout(() => {
           Toast.hide(toast);
         }, 3500);
       })
+      // If not = the coupons already use, so show an error message.
       .catch(() => {
         const toast = Toast.show("Coupon déjà ajouté");
         setTimeout(() => {
@@ -42,6 +47,7 @@ const HomeCard = (props) => {
   };
 
   return (
+    // Data that we put in the flatlist on Home.js, description about the coupon
     <View style={styles.container}>
       <View style={{ flexDirection: "row", position: "relative" }}>
         <View style={{ width: 230 }}>
@@ -55,6 +61,7 @@ const HomeCard = (props) => {
             alignItems: "center",
           }}
         >
+          {/* Button to call the method which add the coupon */}
           <Text
             style={{ marginRight: 15 }}
             onPress={() => addCoupons(offer.id_coupon)}
@@ -63,6 +70,7 @@ const HomeCard = (props) => {
           </Text>
         </View>
       </View>
+      {/* If coupons have an end date then we display the date */}
       {offer.date_end && (
         <Text style={styles.date}>Valable jusqu'au {offer.date_end}</Text>
       )}

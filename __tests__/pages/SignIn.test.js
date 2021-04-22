@@ -6,7 +6,6 @@ import { render } from "@testing-library/react-native";
 import { expect, it } from "@jest/globals";
 
 describe("<SignIn />", () => {
-  
   // Snapshop de l'ensemble de la page SignIn
   it("renders correctly", () => {
     const tree = renderer.create(<SignIn />).toJSON();
@@ -33,7 +32,9 @@ describe("<SignIn />", () => {
     expect(getAllByText("S'inscrire").length).toBe(1);
 
     //Permet de verifier que le style correspond bien
-    expect(getByTestId(/test_keyboardAvoidingView/i).props.style).toMatchSnapshot(
+    expect(
+      getByTestId(/test_keyboardAvoidingView/i).props.style
+    ).toMatchSnapshot(
       {
         flex: 1,
       },

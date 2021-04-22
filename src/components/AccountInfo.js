@@ -6,6 +6,7 @@ import { Ionicons } from "@expo/vector-icons";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
 const AccountInfo = () => {
+  //initialize variables
   const [user, setUser] = useState([]);
   const [userPassword, setUserPassword] = useState("");
   const [clicked, setClicked] = useState(false);
@@ -20,6 +21,7 @@ const AccountInfo = () => {
     }
   }, [playOnce]);
 
+  //Get the User information from the Session
   getUserSession = async () => {
     try {
       const value = await AsyncStorage.getItem("user");
@@ -32,6 +34,7 @@ const AccountInfo = () => {
     }
   };
 
+  //Hide the password with asterisk
   function asteriskPassword() {
     var asterisk = "";
     if (clicked == false) {
