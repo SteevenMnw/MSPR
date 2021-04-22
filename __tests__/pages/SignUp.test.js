@@ -144,7 +144,9 @@ describe("<SignUp />", () => {
       },
       "test Check Password Placeholder style"
     );
-    expect(getByTestId(/test_input_checkPassword/i).props.style).toMatchSnapshot(
+    expect(
+      getByTestId(/test_input_checkPassword/i).props.style
+    ).toMatchSnapshot(
       {
         alignSelf: "center",
         color: "#242424",
@@ -198,7 +200,9 @@ describe("<SignUp />", () => {
     expect(
       getByTestId(/test_text_beforeNavigation/i).props.style
     ).toBeUndefined();
-    expect(getByText(/Vous avez déjà un compte ?/i).props.style).toBeUndefined();
+    expect(
+      getByText(/Vous avez déjà un compte ?/i).props.style
+    ).toBeUndefined();
     expect(getByTestId(/test_text_navigation/i).props.style).toMatchSnapshot(
       {
         color: "#ba473c",
