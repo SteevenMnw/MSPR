@@ -7,6 +7,11 @@ import { expect, it } from "@jest/globals";
 
 jest.useFakeTimers();
 
+jest.mock('react-native-tiny-toast', () => ({
+  show: jest.fn(),
+  hide: jest.fn()
+}));
+
 // Snapshop de l'ensemble de la page Home
 it("renders correctly", () => {
   const tree = renderer.create(<Home />).toJSON();
