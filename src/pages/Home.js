@@ -1,8 +1,15 @@
 import React from "react";
-import { View, Text, StyleSheet, ActivityIndicator } from "react-native";
-import { FlatList } from "react-native-gesture-handler";
+import {
+  View,
+  Text,
+  StyleSheet,
+  ActivityIndicator,
+  FlatList,
+} from "react-native";
 import { getAvailableCoupons } from "../API/API_Access";
 import HomeCard from "../components/HomeCard";
+
+const fetch = require("node-fetch");
 
 // create a component
 class Home extends React.Component {
