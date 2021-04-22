@@ -1,11 +1,10 @@
 //import liraries
 import React, { useState, useEffect } from "react";
-import { View, Text, StyleSheet, Button } from "react-native";
-import { addCouponForUser } from "../API/API_Access";
+import { View, Text, StyleSheet } from "react-native";
+//import { addCouponForUser } from "../API/API_Access";
 import AsyncStorage from "@react-native-async-storage/async-storage";
-import { Ionicons } from "@expo/vector-icons";
-import { AntDesign } from '@expo/vector-icons';
-import Toast from "react-native-tiny-toast";
+import Icon from 'react-native-vector-icons/Ionicons';
+//import Toast from "react-native-tiny-toast";
 
 // create a component
 const HomeCard = (props) => {
@@ -26,21 +25,21 @@ const HomeCard = (props) => {
     }
   };
 
-  addCoupons = (idCoupon) => {
-    addCouponForUser(user.id_user, idCoupon)
-      .then(() => {
-        const toast = Toast.show("Coupon ajouté à votre liste");
-        setTimeout(() => {
-          Toast.hide(toast);
-        }, 3500);
-      })
-      .catch(() => {
-        const toast = Toast.show("Coupon déjà ajouté");
-        setTimeout(() => {
-          Toast.hide(toast);
-        }, 3500);
-      });
-  };
+  // addCoupons = (idCoupon) => {
+  //   addCouponForUser(user.id_user, idCoupon)
+  //     .then(() => {
+  //       const toast = Toast.show("Coupon ajouté à votre liste");
+  //       setTimeout(() => {
+  //         Toast.hide(toast);
+  //       }, 3500);
+  //     })
+  //     .catch(() => {
+  //       const toast = Toast.show("Coupon déjà ajouté");
+  //       setTimeout(() => {
+  //         Toast.hide(toast);
+  //       }, 3500);
+  //     });
+  // };
 
   return (
     <View style={styles.container}>
@@ -58,9 +57,9 @@ const HomeCard = (props) => {
         >
           <Text
             style={{ marginRight: 15 }}
-            onPress={() => addCoupons(offer.id_coupon)}
+            // onPress={() => addCoupons(offer.id_coupon)}
           >
-            <Ionicons name="add-circle-outline" size={40} color="black" />
+            <Icon name="add-circle-outline" size={40} color="black" />
           </Text>
         </View>
       </View>

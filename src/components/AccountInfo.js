@@ -1,28 +1,23 @@
 //import liraries
 import React, { useState, useEffect } from "react";
-import { View, Text, StyleSheet, Alert } from "react-native";
-import { Ionicons } from '@expo/vector-icons';
+import { View, Text, StyleSheet } from "react-native";
+import { Ionicons } from "@expo/vector-icons";
 
 import AsyncStorage from "@react-native-async-storage/async-storage";
-import { set } from "react-native-reanimated";
-
-
 
 const AccountInfo = () => {
   const [user, setUser] = useState([]);
   const [userPassword, setUserPassword] = useState("");
   const [clicked, setClicked] = useState(false);
-  const [playOnce, setPlayOnce] = useState(false)
-  const [pswd, setPswd] = useState("")
+  const [playOnce, setPlayOnce] = useState(false);
+  const [pswd, setPswd] = useState("");
 
   useEffect(() => {
-    
-    if(!playOnce){
-      getUserSession()
+    if (!playOnce) {
+      getUserSession();
+    } else {
+      asteriskPassword();
     }
-    else{
-      asteriskPassword()
-    } 
   }, [playOnce]);
 
   getUserSession = async () => {
@@ -30,49 +25,53 @@ const AccountInfo = () => {
       const value = await AsyncStorage.getItem("user");
       setUser(JSON.parse(value));
       const valuePswd = await AsyncStorage.getItem("pswd");
-      setPswd(JSON.parse(valuePswd))
-      setPlayOnce(true)
+      setPswd(JSON.parse(valuePswd));
+      setPlayOnce(true);
     } catch (e) {
       console.log(e);
     }
   };
 
-  function asteriskPassword (){
+  function asteriskPassword() {
     var asterisk = "";
-    if(clicked == false){
-      for(var i = 0; i < pswd.length; i++){
-        asterisk = asterisk + "*"
+    if (clicked == false) {
+      for (var i = 0; i < pswd.length; i++) {
+        asterisk = asterisk + "*";
       }
-      setUserPassword(asterisk)
-      setClicked(true)
-    }
-    else{
-      setUserPassword(pswd)
-      setClicked(false)
+      setUserPassword(asterisk);
+      setClicked(true);
+    } else {
+      setUserPassword(pswd);
+      setClicked(false);
     }
   }
 
   return (
     <View>
-      <View  testID="test_champView1" style={styles.champ}>
-        <Text  style={styles.champName}>Nom</Text>
-        <Text  style={styles.champUser}>{user.surname}</Text>
+      <View testID="test_champView1" style={styles.champ}>
+        <Text style={styles.champName}>Nom</Text>
+        <Text style={styles.champUser}>{user.surname}</Text>
       </View>
 
       <View testID="test_champView2" style={styles.champ}>
-        <Text  style={styles.champName}>Prenom</Text>
+        <Text style={styles.champName}>Prenom</Text>
         <Text style={styles.champUser}>{user.name}</Text>
       </View>
 
-      <View testID="test_champView3"  style={styles.champ}>
+      <View testID="test_champView3" style={styles.champ}>
         <Text style={styles.champName}>Email</Text>
         <Text style={styles.champUser}>{user.mail}</Text>
       </View>
 
-      <View testID="test_champView4"  style={styles.champ}>
+      <View testID="test_champView4" style={styles.champ}>
         <Text style={styles.champName}>Mot de passe</Text>
-        <Text>{ userPassword }</Text>
-        <Ionicons name="eye-outline" size={40} color="black" onPress={asteriskPassword}/>
+        <Text>{userPassword}</Text>
+        <Ionicons
+          name="eye-outline"
+          size={40}
+          color="black"
+          onPress={asteriskPassword}
+        />
       </View>
     </View>
   );

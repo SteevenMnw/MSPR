@@ -1,7 +1,15 @@
 import React from "react";
-import { View, StyleSheet, Text, KeyboardAvoidingView, TouchableWithoutFeedback, Keyboard, TouchableOpacity} from "react-native";
+import {
+  View,
+  StyleSheet,
+  Text,
+  KeyboardAvoidingView,
+  TouchableWithoutFeedback,
+  Keyboard,
+  TouchableOpacity,
+} from "react-native";
 import { Input, Button } from "react-native-elements";
-import Icon from 'react-native-vector-icons/Ionicons';
+import Icon from "react-native-vector-icons/Ionicons";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { getUserByEmailAndPassword } from "../API/API_Access";
 import * as Crypto from "expo-crypto";
@@ -37,7 +45,7 @@ class SignIn extends React.Component {
   };
 
   getUser = () => {
-    try{
+    try {
       email = this.state.email;
       passwd = this.state.passwd;
       if (email && passwd) {
@@ -65,15 +73,15 @@ class SignIn extends React.Component {
       } else {
         this.updateError("Veuillez renseigner toutes les informations.");
       }
-    }
-    catch(e){
+    } catch (e) {
       console.log(e);
     }
   };
 
   render() {
     return (
-      <KeyboardAvoidingView testID="test_keyboardAvoidingView"
+      <KeyboardAvoidingView
+        testID="test_keyboardAvoidingView"
         //behavior={Platform.OS === "ios" ? "padding" : "height"}
         style={styles.container}
       >
@@ -83,13 +91,7 @@ class SignIn extends React.Component {
               <Input
                 testID="test_input_email"
                 placeholder="Mail"
-                leftIcon={
-                  <Icon 
-                  name="mail-outline" 
-                  size={24} 
-                  color="black" 
-                  />
-                }
+                leftIcon={<Icon name="mail-outline" size={24} color="black" />}
                 onChangeText={this.updateEmail}
                 value={this.state.email}
               />
@@ -98,18 +100,16 @@ class SignIn extends React.Component {
                 secureTextEntry={true}
                 placeholder="Mot de passe"
                 leftIcon={
-                  <Icon
-                    name="lock-closed-outline"
-                    size={24}
-                    color="black"
-                  />
+                  <Icon name="lock-closed-outline" size={24} color="black" />
                 }
                 onChangeText={this.updatePasswd}
                 value={this.state.passwd}
               />
             </View>
             <View testID="test_view_error-button">
-              <Text testID="test_text_error" style={styles.Error}>{this.state.error}</Text>
+              <Text testID="test_text_error" style={styles.Error}>
+                {this.state.error}
+              </Text>
               <Button
                 testID="test_button_signIn"
                 buttonStyle={{
@@ -121,14 +121,24 @@ class SignIn extends React.Component {
                 onPress={this.getUser}
               />
             </View>
-            <View testID="test_view_navigation" style={{ alignSelf: "center", paddingTop: 30 }}>
-              <Text testID="test_text_beforeNavigation">Vous n'avez pas encore de compte ?</Text>
+            <View
+              testID="test_view_navigation"
+              style={{ alignSelf: "center", paddingTop: 30 }}
+            >
+              <Text testID="test_text_beforeNavigation">
+                Vous n'avez pas encore de compte ?
+              </Text>
               <TouchableOpacity
                 testID="test_touchableOpacity_navigation"
                 style={{ alignSelf: "center" }}
                 onPress={() => this.props.navigation.navigate("SignUp")}
               >
-                <Text testID="test_text_navigation" style={{ color: "#ba473c" }}>S'inscrire</Text>
+                <Text
+                  testID="test_text_navigation"
+                  style={{ color: "#ba473c" }}
+                >
+                  S'inscrire
+                </Text>
               </TouchableOpacity>
             </View>
           </View>

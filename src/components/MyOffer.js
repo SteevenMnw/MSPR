@@ -1,8 +1,8 @@
 //import liraries
 import React from "react";
-import { View, Text, StyleSheet, Button, Alert } from "react-native";
+import { View, Text, StyleSheet, Alert } from "react-native";
 import { deleteCouponForUser } from "../API/API_Access";
-import { Ionicons } from "@expo/vector-icons";
+import Icon from 'react-native-vector-icons/Ionicons';
 import Clipboard from "expo-clipboard";
 
 import Toast from "react-native-tiny-toast";
@@ -68,7 +68,7 @@ const MyOffer = (props) => {
             alignItems: "center",
           }}
         >
-          <Ionicons
+          <Icon
             name="copy-outline"
             size={40}
             color="black"
@@ -77,7 +77,7 @@ const MyOffer = (props) => {
 
           <Text> </Text>
 
-          <Ionicons
+          <Icon
             name="trash-outline"
             size={40}
             color="#ba473c"

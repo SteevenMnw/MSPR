@@ -1,8 +1,15 @@
 import React from "react";
-import { View, Text, StyleSheet, ActivityIndicator } from "react-native";
-import { FlatList } from "react-native-gesture-handler";
+import {
+  View,
+  Text,
+  StyleSheet,
+  ActivityIndicator,
+  FlatList,
+} from "react-native";
 import { getAvailableCoupons } from "../API/API_Access";
 import HomeCard from "../components/HomeCard";
+
+const fetch = require("node-fetch");
 
 // create a component
 class Home extends React.Component {
@@ -25,7 +32,7 @@ class Home extends React.Component {
       });
   }
 
-  _renderItem = ({ item }) => (<HomeCard offer={item} />);
+  _renderItem = ({ item }) => <HomeCard offer={item} />;
 
   render() {
     if (this.state.isLoading) {
@@ -59,7 +66,7 @@ const styles = StyleSheet.create({
     fontSize: 40,
     paddingLeft: 15,
     paddingTop: 5,
-    paddingBottom:5,
+    paddingBottom: 5,
     fontWeight: "bold",
     color: "#ba473c",
   },
