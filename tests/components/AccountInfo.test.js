@@ -1,9 +1,9 @@
 import "react-native";
 import React from "react";
-import renderer, { ReactTestInstance } from "react-test-renderer";
+import renderer from "react-test-renderer";
 import AccountInfo from "../../src/components/AccountInfo";
-import { fireEvent, render } from "@testing-library/react-native";
-import { expect, it } from "@jest/globals";
+import { render } from "@testing-library/react-native";
+import { expect } from "@jest/globals";
 
 test("render of Accountinfo component", () => {
   const display = renderer.create(<AccountInfo />).toJSON();
