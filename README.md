@@ -1,6 +1,6 @@
 # 👕 MSPR GoStyle 📷
 
-👨‍🎓 We are a team of 4 developers ([Anthony Leclercq](https://github.com/ALeclercq59), [Julien Chassaing](https://github.com/Julien-Chassaing), [Josias Yahse Koffi](https://github.com/Josiyahse) & [Steeven Michniewicz](https://github.com/SteevenMnw)) from Lille in France, and we are in Bachelor Degree at [EPSI Lille](https://www.epsi.fr).
+👨‍🎓 We are a team of 4 developers ([Anthony Leclercq](https://github.com/ALeclercq59), [Julien Chassaing](https://github.com/Julien-Chassaing), [Steeven Michniewicz](https://github.com/SteevenMnw) & [Yahse Koffi](https://github.com/Josiyahse)) from Lille in France, and we are in Bachelor Degree at [EPSI Lille](https://www.epsi.fr).
 
 The aim of the project, is to create an application where the customers or the potential customers can get coupons to use on GoStyle website.
 
