@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders correctly 1`] = `
+exports[`<SignIn /> renders correctly 1`] = `
 <View
   onLayout={[Function]}
   style={
@@ -308,7 +308,7 @@ exports[`renders correctly 1`] = `
 </View>
 `;
 
-exports[`renders default elements and styles: test Email Input style 1`] = `
+exports[`<SignIn /> renders default elements and styles: test Email Input style 1`] = `
 Object {
   "alignSelf": "center",
   "color": "#242424",
@@ -318,7 +318,7 @@ Object {
 }
 `;
 
-exports[`renders default elements and styles: test Email Placeholder style 1`] = `
+exports[`<SignIn /> renders default elements and styles: test Email Placeholder style 1`] = `
 Object {
   "alignItems": "center",
   "borderBottomWidth": 1,
@@ -332,7 +332,7 @@ Object {
 }
 `;
 
-exports[`renders default elements and styles: test Error Text style 1`] = `
+exports[`<SignIn /> renders default elements and styles: test Error Text style 1`] = `
 Object {
   "alignSelf": "center",
   "color": "red",
@@ -341,40 +341,40 @@ Object {
 }
 `;
 
-exports[`renders default elements and styles: test KeyboardAvoidingView style 1`] = `
+exports[`<SignIn /> renders default elements and styles: test KeyboardAvoidingView style 1`] = `
 Object {
   "flex": 1,
 }
 `;
 
-exports[`renders default elements and styles: test MainContainer style 1`] = `
+exports[`<SignIn /> renders default elements and styles: test MainContainer style 1`] = `
 Object {
   "flex": 1,
   "justifyContent": "center",
 }
 `;
 
-exports[`renders default elements and styles: test Navigation Text style 1`] = `
+exports[`<SignIn /> renders default elements and styles: test Navigation Text style 1`] = `
 Object {
   "color": "#ba473c",
 }
 `;
 
-exports[`renders default elements and styles: test Navigation TouchableOpacity style 1`] = `
+exports[`<SignIn /> renders default elements and styles: test Navigation TouchableOpacity style 1`] = `
 Object {
   "alignSelf": "center",
   "opacity": 1,
 }
 `;
 
-exports[`renders default elements and styles: test Navigation View style 1`] = `
+exports[`<SignIn /> renders default elements and styles: test Navigation View style 1`] = `
 Object {
   "alignSelf": "center",
   "paddingTop": 30,
 }
 `;
 
-exports[`renders default elements and styles: test Password Input style 1`] = `
+exports[`<SignIn /> renders default elements and styles: test Password Input style 1`] = `
 Object {
   "alignSelf": "center",
   "color": "#242424",
@@ -384,7 +384,7 @@ Object {
 }
 `;
 
-exports[`renders default elements and styles: test Password Placeholder style 1`] = `
+exports[`<SignIn /> renders default elements and styles: test Password Placeholder style 1`] = `
 Object {
   "alignItems": "center",
   "borderBottomWidth": 1,
@@ -398,7 +398,7 @@ Object {
 }
 `;
 
-exports[`renders default elements and styles: test SignIn Button style 1`] = `
+exports[`<SignIn /> renders default elements and styles: test SignIn Button style 1`] = `
 Object {
   "alignItems": "center",
   "alignSelf": "center",
@@ -413,7 +413,7 @@ Object {
 }
 `;
 
-exports[`renders default elements and styles: test SignIn Text style 1`] = `
+exports[`<SignIn /> renders default elements and styles: test SignIn Text style 1`] = `
 Object {
   "color": "white",
   "fontSize": 18,
@@ -422,7 +422,7 @@ Object {
 }
 `;
 
-exports[`renders default elements and styles: test View Input style 1`] = `
+exports[`<SignIn /> renders default elements and styles: test View Input style 1`] = `
 Object {
   "paddingLeft": 70,
   "paddingRight": 70,

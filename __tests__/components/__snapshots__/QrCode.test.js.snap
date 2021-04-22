@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Home /> renders correctly 1`] = `
+exports[`<QrCode /> renders correctly 1`] = `
 <Text
   testID="test_text_RequestCamera"
 >

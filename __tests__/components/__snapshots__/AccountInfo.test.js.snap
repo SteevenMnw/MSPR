@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`render of Accountinfo component 1`] = `
+exports[`<AccountInfo /> render of Accountinfo component 1`] = `
 <View>
   <View
     style={
@@ -142,7 +142,7 @@ exports[`render of Accountinfo component 1`] = `
 </View>
 `;
 
-exports[`renders default elements and styles: test champTextEmail style 1`] = `
+exports[`<AccountInfo /> renders default elements and styles: test champTextEmail style 1`] = `
 Object {
   "fontSize": 15,
   "fontWeight": "bold",
@@ -150,7 +150,7 @@ Object {
 }
 `;
 
-exports[`renders default elements and styles: test champTextMdp style 1`] = `
+exports[`<AccountInfo /> renders default elements and styles: test champTextMdp style 1`] = `
 Object {
   "fontSize": 15,
   "fontWeight": "bold",
@@ -158,7 +158,7 @@ Object {
 }
 `;
 
-exports[`renders default elements and styles: test champTextNom style 1`] = `
+exports[`<AccountInfo /> renders default elements and styles: test champTextNom style 1`] = `
 Object {
   "fontSize": 15,
   "fontWeight": "bold",
@@ -166,7 +166,7 @@ Object {
 }
 `;
 
-exports[`renders default elements and styles: test champTextPrenom style 1`] = `
+exports[`<AccountInfo /> renders default elements and styles: test champTextPrenom style 1`] = `
 Object {
   "fontSize": 15,
   "fontWeight": "bold",
@@ -174,7 +174,7 @@ Object {
 }
 `;
 
-exports[`renders default elements and styles: test champView1 style 1`] = `
+exports[`<AccountInfo /> renders default elements and styles: test champView1 style 1`] = `
 Object {
   "alignItems": "center",
   "backgroundColor": "#ffff",
@@ -188,7 +188,7 @@ Object {
 }
 `;
 
-exports[`renders default elements and styles: test champView2 style 1`] = `
+exports[`<AccountInfo /> renders default elements and styles: test champView2 style 1`] = `
 Object {
   "alignItems": "center",
   "backgroundColor": "#ffff",
@@ -202,7 +202,7 @@ Object {
 }
 `;
 
-exports[`renders default elements and styles: test champView3 style 1`] = `
+exports[`<AccountInfo /> renders default elements and styles: test champView3 style 1`] = `
 Object {
   "alignItems": "center",
   "backgroundColor": "#ffff",
@@ -216,7 +216,7 @@ Object {
 }
 `;
 
-exports[`renders default elements and styles: test champView4 style 1`] = `
+exports[`<AccountInfo /> renders default elements and styles: test champView4 style 1`] = `
 Object {
   "alignItems": "center",
   "backgroundColor": "#ffff",

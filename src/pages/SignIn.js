@@ -15,11 +15,14 @@ import { getUserByEmailAndPassword } from "../API/API_Access";
 import * as Crypto from "expo-crypto";
 
 class SignIn extends React.Component {
+
+  //initialize variables
   constructor(props) {
     super(props);
     this.state = { dataSource: [], email: "", passwd: "", error: "" };
   }
 
+  //Update variables when changed
   updateEmail = (email) => {
     this.setState({ email: email });
   };
@@ -32,6 +35,7 @@ class SignIn extends React.Component {
     this.setState({ error: error });
   };
 
+  //Set the User data from API to Session to use it in another page
   setUserSession = async (value, pswd) => {
     try {
       AsyncStorage.clear();
@@ -44,21 +48,27 @@ class SignIn extends React.Component {
     }
   };
 
+  //Function to connect the User
   getUser = () => {
     try {
+      //Checking the accuracy of the information
       email = this.state.email;
       passwd = this.state.passwd;
       if (email && passwd) {
+        //Crypt password
         const value = Crypto.digestStringAsync(
           Crypto.CryptoDigestAlgorithm.SHA256,
           passwd
         );
         value.then((newPasswd) => {
+          //Call the API with parameters to check if the information are correct
           getUserByEmailAndPassword(email, newPasswd)
             .then((data) => {
               this.setState({ dataSource: data });
               if (this.state.dataSource) {
+                //Call the UserSession function
                 this.setUserSession(this.state.dataSource, this.state.passwd);
+                //Go to the Home page
                 this.props.navigation.navigate("Home");
               }
             })
@@ -80,11 +90,12 @@ class SignIn extends React.Component {
 
   render() {
     return (
+      //Prevents the keyboard display from shifting everything up 
       <KeyboardAvoidingView
         testID="test_keyboardAvoidingView"
-        //behavior={Platform.OS === "ios" ? "padding" : "height"}
         style={styles.container}
       >
+        {/* Allows you to exit keyboard mode by clicking elsewhere */}
         <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
           <View testID="test_view_mainContainer" style={styles.main_container}>
             <View testID="test_view_input" style={styles.Input}>
@@ -131,6 +142,7 @@ class SignIn extends React.Component {
               <TouchableOpacity
                 testID="test_touchableOpacity_navigation"
                 style={{ alignSelf: "center" }}
+                //Go to the SignUp page
                 onPress={() => this.props.navigation.navigate("SignUp")}
               >
                 <Text

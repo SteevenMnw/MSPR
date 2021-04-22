@@ -5,6 +5,7 @@ import AccountInfo from "../../src/components/AccountInfo";
 import { render } from "@testing-library/react-native";
 import { expect } from "@jest/globals";
 
+describe("<AccountInfo />", () => {
 test("render of Accountinfo component", () => {
   const display = renderer.create(<AccountInfo />).toJSON();
   expect(display).toMatchSnapshot();
@@ -117,4 +118,5 @@ test("renders default elements and styles", () => {
     },
     "test champTextMdp style"
   );
+});
 });

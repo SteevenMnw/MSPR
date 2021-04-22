@@ -11,7 +11,7 @@ import HomeCard from "../components/HomeCard";
 
 const fetch = require("node-fetch");
 
-// create a component
+
 class Home extends React.Component {
   constructor() {
     super();
@@ -22,6 +22,7 @@ class Home extends React.Component {
   }
 
   componentDidMount() {
+    // Call method API (getAvailableCoupons()) to get All available coupons and fetch them.
     fetch(getAvailableCoupons())
       .then((response) => response.json())
       .then((responseJson) => {
@@ -32,6 +33,7 @@ class Home extends React.Component {
       });
   }
 
+  // Put data in homecard component
   _renderItem = ({ item }) => <HomeCard offer={item} />;
 
   render() {
@@ -45,6 +47,7 @@ class Home extends React.Component {
       return (
         <View style={styles.container}>
           <Text style={styles.text}>Accueil</Text>
+          {/* Show all coupons in a flatlist */}
           <FlatList
             data={this.state.dataSource}
             renderItem={this._renderItem}

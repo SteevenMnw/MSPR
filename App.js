@@ -5,7 +5,7 @@ import SignIn from "./src/pages/SignIn";
 import TabNavigator from "./src/navigation/TabNavigator";
 import { createStackNavigator } from "@react-navigation/stack";
 import SignUp from "./src/pages/SignUp";
-import { MaterialIcons } from "@expo/vector-icons";
+import Icon from "react-native-vector-icons/MaterialIcons";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
 const Stack = createStackNavigator();
@@ -76,7 +76,7 @@ function MyStack() {
           },
           headerRight: () => (
             <Text style={{ marginRight: 15 }} onPress={createTwoButtonAlert}>
-              <MaterialIcons name="logout" size={25} color="white" />
+              <Icon name="logout" size={25} color="white" />
             </Text>
           ),
         }}

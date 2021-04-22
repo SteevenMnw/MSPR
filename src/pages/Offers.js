@@ -61,8 +61,8 @@ const Offers = () => {
   };
 
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Mes offres</Text>
+    <View testID="test_view_container" style={styles.container}>
+      <Text testID="test_text_title" style={styles.title}>Mes offres</Text>
       {/* Liste des coupons de l'utilisateur */}
       <FlatList
         data={user.coupons}
