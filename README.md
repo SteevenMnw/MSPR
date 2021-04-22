@@ -25,6 +25,6 @@ To run the project you need to use the command :
 npm start
 ```
 
-📱 You need to install Expo on your smartphone/emulator to run the app.
+📱 You will need to install Expo on your smartphone/emulator to run the app.
 
 (The app will not work on web browser because of the camera requesting)
