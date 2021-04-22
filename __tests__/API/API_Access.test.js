@@ -4,6 +4,8 @@ import {
   getCouponById,
   getUserById,
   getUserByEmailAndPassword,
+  addCouponForUser,
+  deleteCouponForUser,
 } from "../../src/API/API_Access";
 
 jest.mock("axios");
@@ -78,4 +80,18 @@ test("should fetch user by email and password", () => {
     "anthony@gmail.com",
     "anthony"
   ).then((data) => expect(data).toEqual(user));
+});
+
+test("should add coupon of user", () => {
+  const resp = { status: 200 };
+  axios.put.mockResolvedValue(resp);
+
+  return addCouponForUser(1, 2).then((data) => expect(data).toEqual(200));
+});
+
+test("should remove coupon of user", () => {
+  const resp = { status: 200 };
+  axios.put.mockResolvedValue(resp);
+
+  return deleteCouponForUser(1, 2).then((data) => expect(data).toEqual(200));
 });

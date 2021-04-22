@@ -52,7 +52,7 @@ export function addCouponForUser(idUser, idCoupon) {
   const url = BASE_URL + `/users/${idUser}/addCoupon`;
   return axios
     .put(url, null, { params: { idCoupon } })
-    .then((response) => response.data);
+    .then((response) => response.status);
 }
 
 // Ajout d'un utilisateur
@@ -67,5 +67,7 @@ export function addUser(mail, password, name, surname) {
 // Supprime le coupon d'un utilisateur
 export function deleteCouponForUser(idUser, idCoupon) {
   const url = BASE_URL + `/users/${idUser}/deleteCoupon`;
-  return axios.put(url, null, { params: { idCoupon } });
+  return axios
+    .put(url, null, { params: { idCoupon } })
+    .then((respone) => respone.status);
 }

@@ -60,11 +60,6 @@ export default function QrCode() {
         <Text style={styles.description} testID="test_text_description">
           Scanner votre QR Code
         </Text>
-        <Image
-          style={styles.qr}
-          source={require("../../assets/img/Qr.png")}
-          testID="test_image"
-        />
         {scanned && (
           // Apparition du boutton dès qu'on scan pour rescan un qrCode avec la réinitialisation des variables
           <Button
@@ -74,9 +69,13 @@ export default function QrCode() {
               setResult("");
               setShowModal(false);
             }}
-            testID="test_button_scanAgain"
           />
         )}
+        <Image
+          style={styles.qr}
+          source={require("../../assets/img/Qr.png")}
+          testID="test_image"
+        />
       </BarCodeScanner>
       {/* Dès qu'il y a un résultat par rapport au scan du QRCode on appel le composant ModalCoupon */}
       {showModal && <ModalCoupon visible={showModal} idCoupon={result} />}
