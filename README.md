@@ -5,7 +5,7 @@
 The aim of the project, is to create an application where the customers or the potential customers can get coupons to use on GoStyle website.
 
 To get these coupons, there are 2 ways to do it:
-* You can get the coupons that are available for all
+* You can get the coupons that are available for all on the app
 * You can find QRCodes on the street to get exclusive promotions
 
 ## ⚙️ Installation
