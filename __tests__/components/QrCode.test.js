@@ -14,7 +14,7 @@ jest.mock("react-native-tiny-toast", () => ({
 }));
 
 describe("<Home />", () => {
-  // Snapshop de l'ensemble de la page Home
+  // Snapshop de l'ensemble de la page QRcode
   it("renders correctly",() => {
     const { result } = renderHook(() => QrCode())
 
