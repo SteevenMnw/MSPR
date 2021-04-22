@@ -55,12 +55,13 @@ const MyOffer = (props) => {
   };
 
   return (
-    <View style={styles.container}>
-      <View style={{ flexDirection: "row", position: "relative" }}>
-        <View style={{ width: 230 }}>
+    <View testID="test_view_container" style={styles.container}>
+      <View testID="test_view_subContainer" style={{ flexDirection: "row", position: "relative" }}>
+        <View testID="test_view_description" style={{ width: 230 }}>
           <Text style={styles.description}>{offer.description}</Text>
         </View>
         <View
+          testID="test_view_icon"
           style={{
             position: "absolute",
             flexDirection: "row",
@@ -85,10 +86,10 @@ const MyOffer = (props) => {
           />
         </View>
       </View>
-      <Text style={{ fontWeight: "bold" }}>Code promo : {offer.libelle}</Text>
+      <Text testID="test_text_promo" style={{ fontWeight: "bold" }}>Code promo : {offer.libelle}</Text>
       {/* Si le coupon à une date d'expiration */}
       {offer.date_end && (
-        <Text style={styles.date}>Valable jusqu'au {offer.date_end}</Text>
+        <Text testID="test_text_timeLimit" style={styles.date}>Valable jusqu'au {offer.date_end}</Text>
       )}
     </View>
   );

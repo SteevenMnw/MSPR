@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`render of Profile page 1`] = `
+exports[`<Profile /> render of Profile page 1`] = `
 <View
   style={
     Object {
@@ -166,14 +166,14 @@ exports[`render of Profile page 1`] = `
 </View>
 `;
 
-exports[`renders default elements and styles: test container style 1`] = `
+exports[`<Profile /> renders default elements and styles: test container style 1`] = `
 Object {
   "backgroundColor": "#E8E8E8",
   "flex": 1,
 }
 `;
 
-exports[`renders default elements and styles: test textMonCompte style 1`] = `
+exports[`<Profile /> renders default elements and styles: test textMonCompte style 1`] = `
 Object {
   "color": "#ba473c",
   "fontSize": 40,

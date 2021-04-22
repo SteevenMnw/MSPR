@@ -110,6 +110,7 @@ const ModalCoupon = (props) => {
 
   return (
     <Modal
+      testID="test_modal"
       /* Option du modal */
       animationType="fade"
       transparent={true}
@@ -120,33 +121,33 @@ const ModalCoupon = (props) => {
     >
       {/* Si il n'y a pas d'erreur lors du chargement du coupon alors on affiche le contenu du modal */}
       {!couponError && (
-        <View style={styles.centeredView}>
-          <View style={styles.modalView}>
-            <View>
-              <Text style={styles.titleText}>Description du coupon : </Text>
-              <Text style={styles.modalText}>{coupon.description}</Text>
+        <View testID="test_view_centered" style={styles.centeredView}>
+          <View testID="test_view_modal" style={styles.modalView}>
+            <View testID="test_view_global">
+              <Text testID="test_text_description" style={styles.titleText}>Description du coupon : </Text>
+              <Text testID="test_text_modal" style={styles.modalText}>{coupon.description}</Text>
               {/* Si le coupon a une date de fin alors on affiche le nombre de jours jusqu'à la date d'expiration */}
               {coupon.date_end && (
-                <View>
-                  <Text style={styles.titleText}>Date d'expiration : </Text>
-                  <Text style={styles.modalText}>
+                <View testID="test_view_informationTimeLimit-numberOfDay " >
+                  <Text testID="test_text_expiration" style={styles.titleText}>Date d'expiration : </Text>
+                  <Text testID="test_text_numberOfDay" style={styles.modalText}>
                     Il reste {getDifferenceInDays()} jour(s) pour l'utiliser.
                   </Text>
                 </View>
               )}
               {/* Si le coupon a un compteur alors on affiche */}
               {coupon.compteur && (
-                <View>
-                  <Text style={styles.titleText}>Utilisations : </Text>
-                  <Text style={styles.modalText}>
-                    Il reste {coupon.compteur} utilisations de ce coupon
-                    disponible.
+                <View testID="test_view_counter">
+                  <Text testID="test_text_titleCounter" style={styles.titleText}>Utilisations : </Text>
+                  <Text testID="test_text_counter" style={styles.modalText}>
+                    Il reste {coupon.compteur} utilisations de ce coupon disponible.
                   </Text>
                 </View>
               )}
-              <View style={styles.containerBottom}>
-                <View style={styles.ViewButton}>
+              <View testID="test_view_containerBottom" style={styles.containerBottom}>
+                <View testID="test_view_button" style={styles.ViewButton}>
                   <Pressable
+                    testID="test_pressable_add"
                     style={[styles.button, styles.buttonOpen]}
                     onPress={() => addCoupon()}
                   >
@@ -154,10 +155,11 @@ const ModalCoupon = (props) => {
                   </Pressable>
 
                   <Pressable
+                    testID="test_pressable_close"
                     style={[styles.button, styles.buttonClose]}
                     onPress={() => setStateModal(false)}
                   >
-                    <Text style={styles.textStyle}>Fermer</Text>
+                    <Text testID="test_text_close" style={styles.textStyle}>Fermer</Text>
                   </Pressable>
                 </View>
               </View>

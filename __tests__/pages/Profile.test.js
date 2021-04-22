@@ -5,6 +5,7 @@ import Profile from "../../src/pages/Profile";
 import { render } from "@testing-library/react-native";
 import { expect, it } from "@jest/globals";
 
+describe("<Profile />", () => {
 it("render of Profile page", () => {
   const display = renderer.create(<Profile />).toJSON();
   expect(display).toMatchSnapshot();
@@ -36,4 +37,5 @@ it("renders default elements and styles", () => {
     },
     "test textMonCompte style"
   );
+});
 });

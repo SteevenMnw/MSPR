@@ -4,6 +4,9 @@ import renderer from "react-test-renderer";
 import SignIn from "../../src/pages/SignIn";
 import { render } from "@testing-library/react-native";
 import { expect, it } from "@jest/globals";
+import AsyncStorage from "@react-native-async-storage/async-storage";
+
+jest.mock("@react-native-async-storage/async-storage");
 
 describe("<SignIn />", () => {
   // Snapshop de l'ensemble de la page SignIn
