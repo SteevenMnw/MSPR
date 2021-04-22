@@ -14,6 +14,7 @@ class Profile extends React.Component {
         <Text testID="text_monCompte" style={styles.text}>
           Mon Compte
         </Text>
+        {/* display component information of AccountInfo */}
         <AccountInfo />
       </View>
     );

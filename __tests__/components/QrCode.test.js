@@ -14,9 +14,9 @@ jest.mock("react-native-tiny-toast", () => ({
 }));
 
 describe("<Home />", () => {
-  // Snapshop de l'ensemble de la page Home
-  it("renders correctly", () => {
-    const { result } = renderHook(() => QrCode());
+  // Snapshop de l'ensemble de la page QRcode
+  it("renders correctly",() => {
+    const { result } = renderHook(() => QrCode())
 
     act(() => {
       result.current.setHasPermission == "granted";

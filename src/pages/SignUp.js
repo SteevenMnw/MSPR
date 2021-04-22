@@ -13,6 +13,7 @@ import { addUser, getUserByEmailAndPassword } from "../API/API_Access";
 import * as Crypto from "expo-crypto";
 
 class SignUp extends React.Component {
+  //initialize variables
   constructor(props) {
     super(props);
     this.state = {
@@ -26,6 +27,7 @@ class SignUp extends React.Component {
     };
   }
 
+  //Update variables when changed
   updateName = (name) => {
     this.setState({ name: name });
   };
@@ -50,6 +52,7 @@ class SignUp extends React.Component {
     this.setState({ error: error });
   };
 
+  //Set the User data from API to Session to use it in another page
   setUserSession = async (email, newPasswd, pswd) => {
     try {
       AsyncStorage.clear();
@@ -67,8 +70,10 @@ class SignUp extends React.Component {
     }
   };
 
+  //Function to register the User
   signUp = () => {
     try {
+      //Checking the accuracy of the information
       name = this.state.name;
       surname = this.state.surname;
       email = this.state.email;
@@ -86,16 +91,19 @@ class SignUp extends React.Component {
           (email.includes("@") && email.includes(".com")) ||
           (email.includes("@") && email.includes(".fr"))
         ) {
+          //Crypt password
           const value = Crypto.digestStringAsync(
             Crypto.CryptoDigestAlgorithm.SHA256,
             passwd
           );
           value.then((newPasswd) => {
-            this.setUserSession(email, newPasswd, passwd);
+            //Call the API with parameters to add a new user
             addUser(email, newPasswd, surname, name)
               .then(
                 () => this.updateError(""),
-                console.log("Inscrit"),
+                //Call the UserSession function
+                this.setUserSession(email, newPasswd, passwd),
+                //Go to the Home page
                 this.props.navigation.navigate("Home")
               )
               .catch(() =>
@@ -189,6 +197,7 @@ class SignUp extends React.Component {
             <TouchableOpacity
               testID="test_touchableOpacity_navigation"
               style={{ alignSelf: "center" }}
+              //Go to the SignUp page
               onPress={() => this.props.navigation.navigate("SignIn")}
             >
               <Text testID="test_text_navigation" style={{ color: "#ba473c" }}>
