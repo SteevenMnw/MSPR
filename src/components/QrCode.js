@@ -105,7 +105,7 @@ const styles = StyleSheet.create({
   },
   description: {
     fontSize: width * 0.09,
-    marginTop: "10%",
+    marginTop: -40,
     textAlign: "center",
     width: "70%",
     color: "white",
